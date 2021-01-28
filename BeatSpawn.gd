@@ -1,6 +1,6 @@
 extends Node
 
-export(Resource) var beat_scene = preload("res://Beat.tscn")
+export(Resource) var beat_scene = preload("res://Beat/Beat.tscn")
 
 var next_beat = 0
 

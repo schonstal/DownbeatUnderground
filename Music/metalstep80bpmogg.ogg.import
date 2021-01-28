@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/metalstep80bpmogg.ogg-1dbf546823eb49a1d321e4f414afd0ef.oggstr"
+
+[deps]
+
+source_file="res://Music/metalstep80bpmogg.ogg"
+dest_files=[ "res://.import/metalstep80bpmogg.ogg-1dbf546823eb49a1d321e4f414afd0ef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
