@@ -1,4 +1,5 @@
 extends Node
 
-signal track_selected
-signal beat
+signal track_selected(data)
+signal beat(data)
+signal beat_hit(data)

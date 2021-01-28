@@ -13,7 +13,7 @@ export(Resource) var stream
 # Called when the node enters the scene tree for the first time.
 func _ready():
   EventBus.connect("beat", self, "_on_beat")
-  EventBus.emit_signal("track_selected", { "bpm": 125, "stream": stream })
+  EventBus.emit_signal("track_selected", { "bpm": 80, "stream": stream })
   
   for i in range(0, 12):
     spawn_beat()
