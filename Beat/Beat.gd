@@ -14,6 +14,7 @@ var target_position = 512
 var start_position = -20
 var moving = true
 var active = true
+var miss_time = 102000
 
 # microseconds
 onready var target_time = (beat / Conductor.bps) * 1000000.0
@@ -23,6 +24,8 @@ func _ready():
 
 func _process(delta):
   move()
+  if Conductor.time_elapsed - target_time > Conductor.TIME_GREAT:
+    miss()
 
 func move():
   if moving:
@@ -34,8 +37,16 @@ func _input(event):
     if event.pressed:
       var delta = Conductor.time_elapsed - target_time
         
-      if abs(delta) < 102000:
+      if abs(delta) < Conductor.TIME_GREAT:
         hit(delta, event.scancode)
+        
+func miss():
+  EventBus.emit_signal("beat_hit", {
+    "beat": beat,
+    "judgement": -1,
+    "key": null
+  })
+  clear_note()
       
 func hit(delta, scancode):
   if !(keys.has(scancode) && active):
@@ -52,15 +63,19 @@ func hit(delta, scancode):
   if delta > 0:
     timing = "late"
   
-  var judgement = "great"
-  if abs(delta) < 21500:
-    judgement = "fantastic"
-  elif abs(delta) < 43000:
-    judgement = "excellent"
+  var judgement = 0
+  if abs(delta) < Conductor.TIME_FANTASTIC:
+    judgement = 1
+  elif abs(delta) < Conductor.TIME_EXCELLENT:
+    judgement = 2
 
   EventBus.emit_signal("beat_hit", {
+    "beat": beat,
     "judgement": judgement,
     "key": scancode
   })
   
+  clear_note()
+
+func clear_note():
   queue_free()

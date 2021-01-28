@@ -12,6 +12,10 @@ var presses = 0
 var song_start_time = 0.0
 var time_elapsed setget ,get_time_elapsed
 
+var TIME_GREAT = 102000
+var TIME_EXCELLENT = 43000
+var TIME_FANTASTIC = 21500
+
 onready var audio_stream_player = $AudioStreamPlayer
 
 func _ready():
