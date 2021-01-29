@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/HealthBar/lifebar_bg.png" type="Texture" id=1]
+[ext_resource path="res://UI/HealthBar/lifebar_fill.png" type="Texture" id=2]
+[ext_resource path="res://UI/HealthBar/HealthBar.gd" type="Script" id=3]
+
+[node name="HealthBar" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="UnderProgress" type="TextureProgress" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OverProgress" type="TextureProgress" parent="."]
+modulate = Color( 1, 0.0156863, 0.870588, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthTween" type="Tween" parent="."]

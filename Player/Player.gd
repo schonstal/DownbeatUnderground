@@ -33,6 +33,7 @@ func idle():
   change_state(STATE_IDLE)
 
 func attack():
+  EventBus.emit_signal("player_attack", { "damage": 10 })
   animation.play("Attack")
   change_state(STATE_ATTACK)
   
