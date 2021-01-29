@@ -12,7 +12,6 @@ var state = STATE_IDLE
 
 func _ready():
   EventBus.connect("beat_hit", self, "_on_beat_hit")
-  EventBus.connect("beat_miss", self, "_on_beat_miss")
   
 func _on_beat_hit(data:Dictionary):
   if data.judgement < 0:
@@ -42,11 +41,13 @@ func block():
   change_state(STATE_BLOCK)
   
 func dodge_left():
-  animation.play("Dodge Left")
+  if state != STATE_DODGE_LEFT:
+    animation.play("Dodge Left")
   change_state(STATE_DODGE_LEFT)
   
 func dodge_right():
-  animation.play("Dodge Right")
+  if state != STATE_DODGE_RIGHT:
+    animation.play("Dodge Right")
   change_state(STATE_DODGE_RIGHT)
   
 func change_state(new_state):

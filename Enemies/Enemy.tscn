@@ -5,6 +5,5 @@
 [node name="Enemy" type="Node2D"]
 
 [node name="mech" type="Sprite" parent="."]
-position = Vector2( 620.293, 297.722 )
-scale = Vector2( 0.450837, 0.450837 )
+position = Vector2( 640, 405.252 )
 texture = ExtResource( 1 )

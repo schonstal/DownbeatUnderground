@@ -27,7 +27,7 @@ func play_track():
 
   yield(get_tree().create_timer(time_delay), "timeout")
   print(time_delay)
-  
+
   song_start_time = OS.get_ticks_usec()
   audio_stream_player.play()
 
@@ -37,7 +37,7 @@ func _process(_delta: float):
     AudioServer.get_time_since_last_mix() -
     AudioServer.get_output_latency()
   )
-  
+
   var next_beat = int(time * bps)
 
   if next_beat > beat:
@@ -54,4 +54,4 @@ func _on_track_selected(track:Dictionary):
   play_track()
 
 func get_time_elapsed():
-  return OS.get_ticks_usec() - song_start_time - 62008
+  return OS.get_ticks_usec() - song_start_time - 43008
