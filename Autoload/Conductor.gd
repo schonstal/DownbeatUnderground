@@ -1,6 +1,6 @@
 extends Node
 
-var bpm = 80.0
+var bpm = 140.0
 var bps = bpm / 60.0
 var beats_per_bar = 4
 var beat = 0
@@ -50,8 +50,8 @@ func _process(_delta: float):
 func _on_track_selected(track:Dictionary):
   #print(track.stream)
   #audio_stream_player.stream = load(track.stream)
-  bpm = track.bpm
+  #bpm = track.bpm
   play_track()
 
 func get_time_elapsed():
-  return OS.get_ticks_usec() - song_start_time - 43008
+  return OS.get_ticks_usec() - song_start_time - 51008

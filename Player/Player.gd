@@ -12,19 +12,19 @@ var state = STATE_IDLE
 
 func _ready():
   EventBus.connect("beat_hit", self, "_on_beat_hit")
-  
+
 func _on_beat_hit(data:Dictionary):
   if data.judgement < 0:
     idle()
     return
 
-  if data.key == KEY_UP:
+  if data.action == STATE_ATTACK:
     attack()
-  elif data.key == KEY_DOWN:
+  elif data.action == STATE_BLOCK:
     block()
-  elif data.key == KEY_LEFT:
+  elif data.action == STATE_DODGE_LEFT:
     dodge_left()
-  elif data.key == KEY_RIGHT:
+  elif data.action == STATE_DODGE_RIGHT:
     dodge_right()
 
 func idle():
@@ -33,22 +33,24 @@ func idle():
 
 func attack():
   EventBus.emit_signal("player_attack", { "damage": 10 })
+  animation.stop()
   animation.play("Attack")
   change_state(STATE_ATTACK)
-  
+
 func block():
+  animation.stop()
   animation.play("Block")
   change_state(STATE_BLOCK)
-  
+
 func dodge_left():
-  if state != STATE_DODGE_LEFT:
-    animation.play("Dodge Left")
+  animation.stop()
+  animation.play("Dodge Left")
   change_state(STATE_DODGE_LEFT)
-  
+
 func dodge_right():
-  if state != STATE_DODGE_RIGHT:
-    animation.play("Dodge Right")
+  animation.stop()
+  animation.play("Dodge Right")
   change_state(STATE_DODGE_RIGHT)
-  
+
 func change_state(new_state):
   self.state = new_state

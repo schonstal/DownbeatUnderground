@@ -21,7 +21,7 @@ tracks/0/keys = {
 
 [node name="Spotlight" type="Sprite"]
 position = Vector2( 1199.8, 765.304 )
-rotation = -0.128499
+rotation = -0.314159
 texture = ExtResource( 1 )
 offset = Vector2( 0, -334 )
 

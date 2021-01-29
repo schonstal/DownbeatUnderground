@@ -1,11 +1,12 @@
 extends Node2D
 
-var keys = [
-  KEY_UP,
-  KEY_DOWN,
-  KEY_LEFT,
-  KEY_RIGHT
- ]
+# YEP! I'm hardcoding strings. It's a game jam. DEAL WITH IT.
+var keys = {
+    KEY_UP: "attack",
+    KEY_DOWN: "block",
+    KEY_LEFT: "dodge_left",
+    KEY_RIGHT: "dodge_right"
+}
 
 var beat = 0
 var note_speed = 0.0004
@@ -31,23 +32,23 @@ func move():
   if moving:
     var delta = Conductor.time_elapsed - target_time
     position.x = target_position + delta * note_speed
-  
+
 func _input(event):
   if event is InputEventKey:
     if event.pressed:
       var delta = Conductor.time_elapsed - target_time
-        
+
       if abs(delta) < Conductor.TIME_GREAT:
         hit(delta, event.scancode)
-        
+
 func miss():
   EventBus.emit_signal("beat_hit", {
     "beat": beat,
     "judgement": -1,
-    "key": null
+    "action": null
   })
   clear_note()
-      
+
 func hit(delta, scancode):
   if !(keys.has(scancode) && active):
     return
@@ -57,12 +58,11 @@ func hit(delta, scancode):
   Conductor.presses += 1
   Conductor.error_total += delta
   Conductor.average_error = Conductor.error_total / Conductor.presses
-  print("average error: ", Conductor.average_error)
-  
+
   var timing = "early"
   if delta > 0:
     timing = "late"
-  
+
   var judgement = 0
   if abs(delta) < Conductor.TIME_FANTASTIC:
     judgement = 1
@@ -72,9 +72,9 @@ func hit(delta, scancode):
   EventBus.emit_signal("beat_hit", {
     "beat": beat,
     "judgement": judgement,
-    "key": scancode
+    "action": keys[scancode]
   })
-  
+
   clear_note()
 
 func clear_note():
