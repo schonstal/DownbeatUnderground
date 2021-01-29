@@ -26,5 +26,6 @@ texture = ExtResource( 1 )
 offset = Vector2( 0, -334 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Rotate"
 playback_speed = 0.2
 anims/Rotate = SubResource( 1 )
