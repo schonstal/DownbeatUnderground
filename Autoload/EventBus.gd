@@ -10,3 +10,4 @@ signal enemy_attack(data)
 
 # Player
 signal player_attack(data)
+signal player_damage(data)

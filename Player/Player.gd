@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var animation = $AnimationPlayer
+onready var sprite = $Sprite
 
 var STATE_IDLE = "idle"
 var STATE_ATTACK = "attack"
@@ -19,6 +20,10 @@ func _ready():
   EventBus.connect("enemy_attack", self, "_on_enemy_attack")
 
 func idle():
+  if lane == Game.LANE_LEFT:
+    sprite.scale.x = 1
+  else:
+    sprite.scale.x = -1
   animation.play("Idle")
   change_state(STATE_IDLE)
 
@@ -29,6 +34,10 @@ func attack():
   change_state(STATE_ATTACK)
 
 func block():
+  if lane == Game.LANE_LEFT:
+    sprite.scale.x = -1
+  else:
+    sprite.scale.x = 1
   animation.stop()
   animation.play("Block")
   change_state(STATE_BLOCK)
@@ -49,7 +58,6 @@ func change_state(new_state):
   self.state = new_state
 
 func hurt(damage):
-  print("ouchie my fingies")
   health -= damage
 
   if health <= 0:
@@ -57,7 +65,7 @@ func hurt(damage):
     die()
 
 func die():
-  print("I'm dead! :(")
+  pass
 
 func _on_beat_hit(data:Dictionary):
   if data.judgement < 0:
@@ -76,3 +84,4 @@ func _on_beat_hit(data:Dictionary):
 func _on_enemy_attack(data:Dictionary):
   if data.lane & lane > 0:
     hurt(10)
+    EventBus.emit_signal("player_damage", { "damage": 10 })

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var STATE_READY = "ready"
 var STATE_BUSY = "busy"
@@ -9,6 +9,8 @@ var sequences = {}
 var start_sequence = "Idle"
 
 signal tick
+
+onready var animation = $AnimationPlayer
 
 func _ready():
   sequences = load_sequences()
@@ -48,16 +50,28 @@ func perform_sequences():
 func perform_next_sequence():
   pass
 
+func action_block():
+  print("blocked ya!")
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
+
 func action_idle():
-  print("Bloop")
+  animation.stop()
+  animation.play("idle")
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
 
 func action_tell():
-  print("I'm gonna get you")
+  animation.stop()
+  animation.play("tell")
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
 
 func action_left():
+  animation.stop()
+  animation.play("left")
   EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_LEFT })
 
 func action_right():
+  animation.stop()
+  animation.play("right")
   EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_RIGHT })
 
 func action_mid():
