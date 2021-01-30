@@ -54,4 +54,4 @@ func _on_track_selected(track:Dictionary):
   play_track()
 
 func get_time_elapsed():
-  return OS.get_ticks_usec() - song_start_time - 51008
+  return OS.get_ticks_usec() - song_start_time - 35008
