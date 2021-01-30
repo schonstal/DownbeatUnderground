@@ -1,14 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://BeatSpawn.gd" type="Script" id=2]
 [ext_resource path="res://Music/cowboystep1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://pulse.gd" type="Script" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Metal/Metal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/HealthBar/HealthBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/EnemyHealth/EnemyHealth.gd" type="Script" id=8]
 [ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=9]
+[ext_resource path="res://SoundPlayer.gd" type="Script" id=10]
+[ext_resource path="res://SFX/ESM_Undead_Vocal_I_Am_Starting_To_Dislike_You.wav" type="AudioStream" id=11]
+[ext_resource path="res://SFX/ESM_Undead_Vocal_Jump_Big_Windup.wav" type="AudioStream" id=12]
+[ext_resource path="res://SFX/ESM_Undead_Vocal_Try_This_Ghost_Zombie.wav" type="AudioStream" id=13]
+[ext_resource path="res://SFX/ESM_Undead_Vocal_You_Shall_Falter_In_The_Face_Of_Death.wav" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "pulse"
@@ -34,7 +39,7 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 stream = ExtResource( 3 )
 
-[node name="Enemy" parent="." instance=ExtResource( 6 )]
+[node name="Metal" parent="." instance=ExtResource( 6 )]
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 
@@ -60,3 +65,19 @@ script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Pulse"]
 anims/pulse = SubResource( 1 )
+
+[node name="SoundPlayer" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Dislike" type="AudioStreamPlayer" parent="SoundPlayer"]
+stream = ExtResource( 11 )
+
+[node name="Windup" type="AudioStreamPlayer" parent="SoundPlayer"]
+stream = ExtResource( 12 )
+
+[node name="TryThis" type="AudioStreamPlayer" parent="SoundPlayer"]
+stream = ExtResource( 13 )
+
+[node name="Falter" type="AudioStreamPlayer" parent="SoundPlayer"]
+stream = ExtResource( 14 )
+volume_db = 24.0

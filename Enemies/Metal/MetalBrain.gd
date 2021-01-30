@@ -5,9 +5,15 @@ var STATE_BUSY = "busy"
 
 var state = STATE_READY
 
+var sequences = {}
+var start_sequence = "Idle"
+
+signal tick
+
 func _ready():
-  load_sequences()
+  sequences = load_sequences()
   EventBus.connect("beat_hit", self, "_on_beat_hit")
+  perform_sequences()
 
 func load_sequences():
   var sequences = {}
@@ -18,37 +24,41 @@ func load_sequences():
   var file = dir.get_next()
   while file != "":
     if file.ends_with(".gd"):
-      sequences[file.filename.rstrip(".gd")] = load(file)
+      sequences[file.get_file().rstrip(".gd")] = load("res://Enemies/Sequences/%s" % file)
     file = dir.get_next()
 
   dir.list_dir_end()
 
-  return files
+  return sequences
 
 func _on_beat_hit(data:Dictionary):
-  tick(data.action)
+  emit_signal("tick")
 
-func tick(player_action):
-  if state == STATE_READY:
-    start_sequence()
-  else:
-    perform_next_sequence()
+func perform_sequences():
+  var sequence = sequences.Left.new()
 
-func start_sequence():
-  state = STATE_BUSY
-  pass
+  while true:
+    for action in sequence:
+      yield(self, "tick")
+      self.call("action_%s" % action)
+
+    sequence = sequences[sequence.next_sequence].new()
+
 
 func perform_next_sequence():
   pass
 
-func attack_left():
-  print("left")
-  EventBus.emit_signal("enemy_attack", { "position": "left" })
+func action_idle():
+  print("Bloop")
 
-func attack_right():
-  print("right")
-  EventBus.emit_signal("enemy_attack", { "position": "right" })
+func action_tell():
+  print("I'm gonna get you")
 
-func attack_mid():
-  print("mid")
-  EventBus.emit_signal("enemy_attack", { "position": "mid" })
+func action_left():
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_LEFT })
+
+func action_right():
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_RIGHT })
+
+func action_mid():
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_BOTH })

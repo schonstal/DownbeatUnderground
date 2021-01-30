@@ -1,8 +1,7 @@
-var AttackSequence = preload("res://Enemies/AttackSequence.gd")
+extends "res://Enemies/AttackSequence.gd"
 
-extends AttackSequence
-
-var sequence = ["tell", "left"]
+func _init().(["tell", "left"]):
+  pass
 
 func get_next_sequence():
   return "Idle"

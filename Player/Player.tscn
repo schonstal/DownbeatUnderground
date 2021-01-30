@@ -94,7 +94,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 249, 0 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Camera2D:position")
@@ -158,7 +158,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 249, 0 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Camera2D:position")
@@ -254,7 +254,6 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 640, 600 )
 texture = ExtResource( 1 )
-offset = Vector2( 249, 0 )
 vframes = 6
 hframes = 2
 
@@ -268,6 +267,6 @@ anims/Block = SubResource( 2 )
 anims/Idle = SubResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 690, 360 )
+position = Vector2( 665, 360 )
 current = true
 smoothing_enabled = true
