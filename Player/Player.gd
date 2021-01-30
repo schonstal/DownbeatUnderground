@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var dash_animation = $DashAnimation
+onready var block_animation = $BlockAnimation
 onready var animation = $AnimationPlayer
 onready var sprite = $Sprite
 
@@ -14,9 +16,11 @@ var lane = Game.LANE_LEFT
 var state = STATE_IDLE
 
 var health = 30
+var blocking = false
 
 func _ready():
   EventBus.connect("beat_hit", self, "_on_beat_hit")
+  EventBus.connect("player_damage", self, "_on_player_damage")
 
 func idle():
   if lane == Game.LANE_LEFT:
@@ -43,6 +47,7 @@ func attack():
   })
 
 func block():
+  blocking = true
   if lane == Game.LANE_LEFT:
     sprite.scale.x = -1
   else:
@@ -61,6 +66,8 @@ func dodge_left():
   lane = Game.LANE_LEFT
   animation.stop()
   animation.play("Dodge Left")
+  dash_animation.stop()
+  dash_animation.play("Dash")
 
   change_state(STATE_DODGE_LEFT)
 
@@ -72,6 +79,8 @@ func dodge_right():
   lane = Game.LANE_RIGHT
   animation.stop()
   animation.play("Dodge Right")
+  dash_animation.stop()
+  dash_animation.play("Dash")
 
   change_state(STATE_DODGE_RIGHT)
 
@@ -83,7 +92,17 @@ func change_state(new_state):
   self.state = new_state
 
 func hurt(damage):
-  health -= damage
+  if lane == Game.LANE_LEFT:
+    sprite.scale.x = -1
+  else:
+    sprite.scale.x = 1
+
+  if blocking:
+    health -= damage * 0.25
+    block_animation.play("Block")
+  else:
+    health -= damage
+    animation.play("Hurt")
 
   if health <= 0:
     health = 0
@@ -92,7 +111,11 @@ func hurt(damage):
 func die():
   pass
 
+func _on_player_damage(data:Dictionary):
+  hurt(data.damage)
+
 func _on_beat_hit(data:Dictionary):
+  blocking = false
   if data.judgement < 0:
     idle()
     return

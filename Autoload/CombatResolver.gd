@@ -23,8 +23,6 @@ func attempt_resolve():
   reset_flags()
 
 func resolve_combat():
-  print(enemy_attack)
-  print(player_attack)
   if enemy_attack.has("lane") && player_attack.has("lane") &&\
      enemy_attack.lane & player_attack.lane > 0:
       if enemy_attack.has("damage"):
