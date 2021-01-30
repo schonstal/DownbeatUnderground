@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Enemies/Metal/MetalIdle.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Metal/MetalBrain.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Metal/MetalSlashBody/MetalSlashBody0001_4x1.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/Metal/MetalSlashArm/MetalSlashArm0001_5x1.png" type="Texture" id=4]
+[ext_resource path="res://Effects/HitSpark/HitSpark0001_6x1.png" type="Texture" id=5]
+[ext_resource path="res://Enemies/HitSpark.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -57,7 +59,7 @@ tracks/3/keys = {
 "values": [ Vector2( 640, 405.252 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "left"
 length = 0.5
 tracks/0/type = "value"
@@ -169,8 +171,7 @@ tracks/8/keys = {
 "values": [ Vector2( 712.404, 364.38 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "right"
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Idle:visible")
@@ -357,6 +358,36 @@ tracks/5/keys = {
 "values": [ 2.0 ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "Flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
 [node name="Enemy" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -378,6 +409,18 @@ hframes = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
 anims/idle = SubResource( 1 )
-anims/left = SubResource( 3 )
-anims/right = SubResource( 2 )
+anims/left = SubResource( 2 )
+anims/right = SubResource( 3 )
 anims/tell = SubResource( 4 )
+
+[node name="HitSpark" type="Sprite" parent="."]
+position = Vector2( 642.068, 300.651 )
+texture = ExtResource( 5 )
+hframes = 6
+script = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HitSpark"]
+autoplay = "Idle"
+playback_speed = 2.0
+anims/Flash = SubResource( 5 )
+anims/Idle = SubResource( 6 )
