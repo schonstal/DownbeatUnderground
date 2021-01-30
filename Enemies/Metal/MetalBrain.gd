@@ -67,12 +67,12 @@ func action_tell():
 func action_left():
   animation.stop()
   animation.play("left")
-  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_LEFT })
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_LEFT, "damage": 10 })
 
 func action_right():
   animation.stop()
   animation.play("right")
-  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_RIGHT })
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_RIGHT, "damage": 10 })
 
 func action_mid():
-  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_BOTH })
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_BOTH, "damage": 10 })

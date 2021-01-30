@@ -17,7 +17,6 @@ var health = 30
 
 func _ready():
   EventBus.connect("beat_hit", self, "_on_beat_hit")
-  EventBus.connect("enemy_attack", self, "_on_enemy_attack")
 
 func idle():
   if lane == Game.LANE_LEFT:
@@ -25,34 +24,60 @@ func idle():
   else:
     sprite.scale.x = -1
   animation.play("Idle")
+
   change_state(STATE_IDLE)
 
+  EventBus.emit_signal("player_attack", {
+    "lane": lane
+  })
+
 func attack():
-  EventBus.emit_signal("player_attack", { "damage": 10 })
   animation.stop()
   animation.play("Attack")
+
   change_state(STATE_ATTACK)
+
+  EventBus.emit_signal("player_attack", {
+    "damage": 10,
+    "lane": lane
+  })
 
 func block():
   if lane == Game.LANE_LEFT:
     sprite.scale.x = -1
   else:
     sprite.scale.x = 1
+
   animation.stop()
   animation.play("Block")
+
   change_state(STATE_BLOCK)
+
+  EventBus.emit_signal("player_attack", {
+    "lane": lane
+  })
 
 func dodge_left():
   lane = Game.LANE_LEFT
   animation.stop()
   animation.play("Dodge Left")
+
   change_state(STATE_DODGE_LEFT)
+
+  EventBus.emit_signal("player_attack", {
+    "lane": lane
+  })
 
 func dodge_right():
   lane = Game.LANE_RIGHT
   animation.stop()
   animation.play("Dodge Right")
+
   change_state(STATE_DODGE_RIGHT)
+
+  EventBus.emit_signal("player_attack", {
+    "lane": lane
+  })
 
 func change_state(new_state):
   self.state = new_state
@@ -80,8 +105,3 @@ func _on_beat_hit(data:Dictionary):
     dodge_left()
   elif data.action == STATE_DODGE_RIGHT:
     dodge_right()
-
-func _on_enemy_attack(data:Dictionary):
-  if data.lane & lane > 0:
-    hurt(10)
-    EventBus.emit_signal("player_damage", { "damage": 10 })
