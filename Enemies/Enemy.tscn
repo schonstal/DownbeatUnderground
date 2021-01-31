@@ -1,16 +1,22 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Enemies/Metal/MetalIdle.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/Metal/MetalIdle/MetalIdle0001_4x1.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Metal/MetalBrain.gd" type="Script" id=2]
-[ext_resource path="res://Enemies/Metal/MetalSlashBody/MetalSlashBody0001_4x1.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Metal/Arms/MetalAttackBody0001_3x1.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/Metal/MetalSlashArm/MetalSlashArm0001_5x1.png" type="Texture" id=4]
 [ext_resource path="res://Effects/HitSpark/HitSpark0001_6x1.png" type="Texture" id=5]
 [ext_resource path="res://Enemies/HitSpark.gd" type="Script" id=6]
 [ext_resource path="res://Enemies/Body.gd" type="Script" id=7]
+[ext_resource path="res://Enemies/Metal/MetalIdleTell/MetalIdleTell0001_3x1.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/Metal/Arms/MetalRaisedArm0001_3x1.png" type="Texture" id=9]
+[ext_resource path="res://Enemies/Metal/Arms/MetalSawBlade.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/MetalSawBlade.gd" type="Script" id=11]
+[ext_resource path="res://Enemies/Metal/Arms/MetalArmHorizontal0001_3x1.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Metal/Arms/MetalArmLowered0001_3x1.png" type="Texture" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
-length = 0.1
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Idle:visible")
 tracks/0/interp = 1
@@ -36,7 +42,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("SlashArm:visible")
+tracks/2/path = NodePath("Body/SlashArm:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -48,16 +54,40 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Body/Idle:position")
-tracks/3/interp = 2
+tracks/3/path = NodePath("Body/Idle:frame")
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimationPlayer:playback_speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 0.378929 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 640, 405.252 ) ]
+"values": [ 2.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/Tell:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -88,7 +118,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("SlashArm:visible")
+tracks/2/path = NodePath("Body/SlashArm:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -112,7 +142,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("SlashArm:frame")
+tracks/4/path = NodePath("Body/SlashArm:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -136,7 +166,7 @@ tracks/5/keys = {
 "values": [ 1.5 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Body/Slash:scale")
+tracks/6/path = NodePath("Body/Tell:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -144,11 +174,11 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -1, 1 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("SlashArm:position")
+tracks/7/path = NodePath("Body:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -157,19 +187,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 416.114, 360.351 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Body/Slash:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 712.404, 364.38 ) ]
+"values": [ Vector2( -1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -199,7 +217,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("SlashArm:visible")
+tracks/2/path = NodePath("Body/SlashArm:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -223,7 +241,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("SlashArm:frame")
+tracks/4/path = NodePath("Body/SlashArm:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -247,7 +265,7 @@ tracks/5/keys = {
 "values": [ 1.5 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("SlashArm:position")
+tracks/6/path = NodePath("Body/Tell:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -255,11 +273,11 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 856.933, 360.856 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Body/Slash:scale")
+tracks/7/path = NodePath("Body:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -269,18 +287,6 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Body/Slash:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 567.384, 364.38 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -296,7 +302,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Body/Slash:visible")
@@ -311,7 +317,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("SlashArm:visible")
+tracks/2/path = NodePath("Body/SlashArm:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -323,28 +329,40 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Body/Idle:position")
-tracks/3/interp = 2
+tracks/3/path = NodePath("AnimationPlayer:playback_speed")
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 0.378929 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 640, 405.252 ) ]
+"values": [ 2.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("AnimationPlayer:playback_speed")
+tracks/4/path = NodePath("Body/Tell:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/Tell:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 2.0 ]
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -381,25 +399,71 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Body" type="Node2D" parent="."]
+position = Vector2( 640, 360 )
 script = ExtResource( 7 )
 
+[node name="TellArm" type="Node2D" parent="Body"]
+visible = false
+position = Vector2( -640, -359.711 )
+
+[node name="Raised" type="Node2D" parent="Body/TellArm"]
+visible = false
+
+[node name="Blade" type="Sprite" parent="Body/TellArm/Raised"]
+position = Vector2( 256.887, 154.436 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
+
+[node name="Arm" type="Sprite" parent="Body/TellArm/Raised"]
+position = Vector2( 360.781, 273.134 )
+texture = ExtResource( 9 )
+hframes = 3
+
+[node name="Horizontal" type="Node2D" parent="Body/TellArm"]
+visible = false
+
+[node name="Arm" type="Sprite" parent="Body/TellArm/Horizontal"]
+position = Vector2( 282.306, 393.394 )
+texture = ExtResource( 12 )
+hframes = 3
+
+[node name="Lowered" type="Node2D" parent="Body/TellArm"]
+
+[node name="Blade" type="Sprite" parent="Body/TellArm/Lowered"]
+position = Vector2( 216.519, 642.048 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
+
+[node name="Arm" type="Sprite" parent="Body/TellArm/Lowered"]
+position = Vector2( 393.643, 507.869 )
+texture = ExtResource( 13 )
+hframes = 3
+
 [node name="Idle" type="Sprite" parent="Body"]
-position = Vector2( 640, 405.252 )
+visible = false
+position = Vector2( -2.35651, 42.09 )
 texture = ExtResource( 1 )
+hframes = 4
 
 [node name="Slash" type="Sprite" parent="Body"]
 visible = false
-position = Vector2( 567.384, 364.38 )
+position = Vector2( 62.9849, 46.3683 )
 texture = ExtResource( 3 )
-hframes = 4
+hframes = 3
 
-[node name="FlashTween" type="Tween" parent="Body"]
-
-[node name="SlashArm" type="Sprite" parent="."]
+[node name="Tell" type="Sprite" parent="Body"]
 visible = false
-position = Vector2( 856.933, 360.856 )
+position = Vector2( 47, 41.5407 )
+texture = ExtResource( 8 )
+hframes = 3
+
+[node name="SlashArm" type="Sprite" parent="Body"]
+visible = false
+position = Vector2( 216.568, 0.5 )
 texture = ExtResource( 4 )
 hframes = 5
+
+[node name="FlashTween" type="Tween" parent="Body"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
