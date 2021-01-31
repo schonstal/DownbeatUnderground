@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://BeatSpawn.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/VHS/VHS.shader" type="Shader" id=3]
 [ext_resource path="res://pulse.gd" type="Script" id=4]
@@ -17,6 +16,15 @@
 [ext_resource path="res://PlayerHealth.gd" type="Script" id=15]
 [ext_resource path="res://Shaders/VHS/VHS.gd" type="Script" id=16]
 [ext_resource path="res://UI/VHS.gd" type="Script" id=17]
+[ext_resource path="res://UI/TempoDiamond.png" type="Texture" id=18]
+[ext_resource path="res://UI/TempoMarkerDiamond.png" type="Texture" id=19]
+[ext_resource path="res://UI/TempoBar.png" type="Texture" id=20]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/time = 0.0
+shader_param/strength = 1.0
+shader_param/apply_noise = false
 
 [sub_resource type="Animation" id=1]
 resource_name = "pulse"
@@ -31,49 +39,21 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.6, 0.6 ), Vector2( 0.5, 0.5 ) ]
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 3 )
-shader_param/time = 0.0
-shader_param/strength = 1.0
-shader_param/apply_noise = false
 
 [node name="Gameplay" type="Node2D"]
 
 [node name="Arena" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0, -0.780151 )
 
 [node name="BeatSpawn" type="Node" parent="."]
 script = ExtResource( 2 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1.5603, 0.780151 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-
-[node name="HUD" type="Node2D" parent="."]
-
-[node name="PlayerHealth" type="Node2D" parent="HUD"]
-position = Vector2( 803.072, 611.705 )
-script = ExtResource( 15 )
-
-[node name="HealthBar" parent="HUD/PlayerHealth" instance=ExtResource( 7 )]
-
-[node name="EnemyHealth" type="Node2D" parent="HUD"]
-position = Vector2( 139.665, 85.9475 )
-script = ExtResource( 8 )
-
-[node name="HealthBar" parent="HUD/EnemyHealth" instance=ExtResource( 7 )]
-
-[node name="Pulse" type="Sprite" parent="HUD"]
-modulate = Color( 1, 1, 1, 0.419608 )
-position = Vector2( 512, 50 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 1 )
-script = ExtResource( 4 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Pulse"]
-anims/pulse = SubResource( 1 )
 
 [node name="SoundPlayer" type="Node2D" parent="."]
 script = ExtResource( 10 )
@@ -92,10 +72,14 @@ stream = ExtResource( 14 )
 volume_db = 24.0
 
 [node name="VHS" type="BackBufferCopy" parent="."]
+position = Vector2( 0.780151, -0.780151 )
 z_index = 100
 copy_mode = 2
 rect = Rect2( -320, -180, 1920, 1080 )
 script = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="VHS"]
 visible = false
@@ -112,3 +96,39 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="VHS"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealth" type="Node2D" parent="CanvasLayer"]
+position = Vector2( 822.072, 603.705 )
+script = ExtResource( 15 )
+
+[node name="HealthBar" parent="CanvasLayer/PlayerHealth" instance=ExtResource( 7 )]
+position = Vector2( 454.833, -603.843 )
+scale = Vector2( -1, 1 )
+
+[node name="EnemyHealth" type="Node2D" parent="CanvasLayer"]
+position = Vector2( 139.665, 85.9475 )
+script = ExtResource( 8 )
+
+[node name="HealthBar" parent="CanvasLayer/EnemyHealth" instance=ExtResource( 7 )]
+position = Vector2( -139.648, -83.477 )
+
+[node name="TempoBar" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 639.307, 85.0819 )
+texture = ExtResource( 20 )
+
+[node name="TempoMarkerDiamond" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 272.292, 89.7629 )
+texture = ExtResource( 19 )
+
+[node name="Pulse" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 639.166, 85.8873 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 18 )
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Pulse"]
+anims/pulse = SubResource( 1 )
+
+[node name="HUD" type="Node2D" parent="CanvasLayer"]
