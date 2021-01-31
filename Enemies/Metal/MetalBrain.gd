@@ -100,7 +100,15 @@ func action_idle():
 
 func action_tell():
   hide_body()
-  show_tell_arm("raised")
+  if next_action == "left":
+    body.scale.x = 1
+    show_tell_arm("raised")
+  elif next_action == "right":
+    body.scale.x = -1
+    show_tell_arm("raised")
+  else:
+    show_tell_arm("horizontal")
+
   tell.visible = true
   animation.stop()
   animation.play("Tell")

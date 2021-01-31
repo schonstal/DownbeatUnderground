@@ -405,6 +405,7 @@ texture = ExtResource( 13 )
 hframes = 3
 
 [node name="Idle" type="Sprite" parent="Body"]
+visible = false
 position = Vector2( -2.35651, 48.09 )
 texture = ExtResource( 1 )
 hframes = 4
@@ -422,7 +423,6 @@ texture = ExtResource( 8 )
 hframes = 3
 
 [node name="Sweep" type="Sprite" parent="Body"]
-visible = false
 position = Vector2( 0.460144, 43.717 )
 texture = ExtResource( 15 )
 vframes = 2

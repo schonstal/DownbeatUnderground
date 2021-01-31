@@ -11,5 +11,5 @@ dest_files=[ "res://.import/metalstep140.ogg-ce4ac2575e42dd3c87f7d9ce3336777a.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
