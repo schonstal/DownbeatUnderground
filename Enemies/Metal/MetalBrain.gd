@@ -22,6 +22,8 @@ var sequences = {}
 var start_sequence = "Idle"
 
 var next_action = null
+var current_action = null
+var previous_action = "idle"
 
 signal tick
 
@@ -30,6 +32,7 @@ onready var animation = $AnimationPlayer
 func _ready():
   sequences = load_sequences()
   EventBus.connect("beat_hit", self, "_on_beat_hit")
+  EventBus.connect("enemy_damage", self, "_on_enemy_damage")
   perform_sequences()
 
 func load_sequences():
@@ -51,12 +54,18 @@ func load_sequences():
 func _on_beat_hit(data:Dictionary):
   emit_signal("tick")
 
+func _on_enemy_damage(data:Dictionary):
+  if previous_action == "idle" && current_action == "idle":
+    block()
+
 func perform_sequences():
   var sequence = sequences.Left.new()
 
   while true:
     for action in sequence:
       yield(self, "tick")
+      previous_action = current_action
+      current_action = action
       next_action = sequence.next_action
       call("action_%s" % action)
 
@@ -85,12 +94,11 @@ func hide_body():
   eye.visible = false
   eye.offset.x = 0
 
-func action_block():
+func block():
   hide_body()
   block.visible = true
   animation.stop()
   animation.play("Block")
-  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
 
 func action_idle():
   hide_body()
