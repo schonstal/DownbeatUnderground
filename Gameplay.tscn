@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://UI/digital_7/Digital7Mono.tres" type="DynamicFont" id=1]
 [ext_resource path="res://BeatSpawn.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://UI/TempoDiamond.png" type="Texture" id=18]
 [ext_resource path="res://UI/TimeRemaining.gd" type="Script" id=19]
 [ext_resource path="res://UI/TempoBar.png" type="Texture" id=20]
+[ext_resource path="res://UI/digital_7/Digital7Regular.tres" type="DynamicFont" id=21]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
@@ -46,7 +47,7 @@ tracks/0/keys = {
 [node name="Gameplay" type="Node2D"]
 
 [node name="Arena" parent="." instance=ExtResource( 9 )]
-position = Vector2( 0, -0.780151 )
+position = Vector2( 0.941498, -1.09399 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1.5603, 0.780151 )
@@ -115,12 +116,36 @@ script = ExtResource( 15 )
 position = Vector2( 454.833, -603.843 )
 scale = Vector2( -1, 1 )
 
+[node name="Label" type="Label" parent="CanvasLayer/PlayerHealth"]
+margin_left = 249.766
+margin_top = -529.061
+margin_right = 412.766
+margin_bottom = -500.061
+custom_fonts/font = ExtResource( 21 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "TURBO BRAWLER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EnemyHealth" type="Node2D" parent="CanvasLayer"]
 position = Vector2( 140.665, 94.9475 )
 script = ExtResource( 8 )
 
 [node name="HealthBar" parent="CanvasLayer/EnemyHealth" instance=ExtResource( 7 )]
 position = Vector2( -139.648, -83.477 )
+
+[node name="Label" type="Label" parent="CanvasLayer/EnemyHealth"]
+margin_left = -77.1025
+margin_top = -8.87237
+margin_right = 76.8975
+margin_bottom = 20.1276
+custom_fonts/font = ExtResource( 21 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Maxx 3000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Pulse" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 639.166, 112.887 )
