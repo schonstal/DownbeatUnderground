@@ -9,9 +9,9 @@ var keys = {
 }
 
 var beat = 0
-var note_speed = 0.0004
+var note_speed = 0.0003
 
-var target_position = 512
+var target_position = 640
 var start_position = -20
 var moving = true
 var active = true
@@ -25,6 +25,8 @@ func _ready():
 
 func _process(delta):
   move()
+  if position.x > target_position:
+    visible = false
   if Conductor.time_elapsed - target_time > Conductor.TIME_GREAT:
     miss()
 

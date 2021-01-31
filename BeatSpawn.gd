@@ -3,6 +3,7 @@ extends Node
 export(Resource) var beat_scene = preload("res://Beat/Beat.tscn")
 
 var next_beat = 0
+onready var tempo_spawn = $TempoSpawn
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -24,5 +25,6 @@ func _on_beat(data:Dictionary):
 func spawn_beat():
   next_beat += 1
   var instance = beat_scene.instance()
+  instance.position = tempo_spawn.position
   instance.beat = next_beat
   call_deferred("add_child", instance)

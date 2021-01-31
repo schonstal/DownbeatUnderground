@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://BeatSpawn.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/VHS/VHS.shader" type="Shader" id=3]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Shaders/VHS/VHS.gd" type="Script" id=16]
 [ext_resource path="res://UI/VHS.gd" type="Script" id=17]
 [ext_resource path="res://UI/TempoDiamond.png" type="Texture" id=18]
-[ext_resource path="res://UI/TempoMarkerDiamond.png" type="Texture" id=19]
 [ext_resource path="res://UI/TempoBar.png" type="Texture" id=20]
 
 [sub_resource type="ShaderMaterial" id=2]
@@ -46,9 +45,6 @@ tracks/0/keys = {
 
 [node name="Arena" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, -0.780151 )
-
-[node name="BeatSpawn" type="Node" parent="."]
-script = ExtResource( 2 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1.5603, 0.780151 )
@@ -99,6 +95,12 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="BeatSpawn" type="Node" parent="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="TempoSpawn" type="Node2D" parent="CanvasLayer/BeatSpawn"]
+position = Vector2( 270.715, 89.7183 )
+
 [node name="PlayerHealth" type="Node2D" parent="CanvasLayer"]
 position = Vector2( 822.072, 603.705 )
 script = ExtResource( 15 )
@@ -117,10 +119,6 @@ position = Vector2( -139.648, -83.477 )
 [node name="TempoBar" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 639.307, 85.0819 )
 texture = ExtResource( 20 )
-
-[node name="TempoMarkerDiamond" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 272.292, 89.7629 )
-texture = ExtResource( 19 )
 
 [node name="Pulse" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 639.166, 85.8873 )
