@@ -1,5 +1,6 @@
 var sequence = []
 var next_sequence setget ,get_next_sequence
+var next_action setget ,get_next_action
 var index = 0
 
 func _init(move_sequence:Array):
@@ -18,3 +19,10 @@ func _iter_get(_arg):
 
 func get_next_sequence():
   return "Idle"
+
+func get_next_action():
+  if index + 1 < sequence.size():
+    return sequence[index + 1]
+  else:
+    return null
+
