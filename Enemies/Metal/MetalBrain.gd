@@ -83,6 +83,7 @@ func hide_body():
   sweep.visible = false
   slash.visible = false
   eye.visible = false
+  eye.offset.x = 0
 
 func action_block():
   hide_body()
@@ -100,11 +101,14 @@ func action_idle():
 
 func action_tell():
   hide_body()
+  eye.visible = true
   if next_action == "left":
     body.scale.x = 1
+    eye.offset.x = -3
     show_tell_arm("raised")
   elif next_action == "right":
     body.scale.x = -1
+    eye.offset.x = -3
     show_tell_arm("raised")
   else:
     show_tell_arm("horizontal")

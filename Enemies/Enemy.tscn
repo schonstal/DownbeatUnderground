@@ -353,6 +353,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/Eye:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -1.98547, -87.0543 ), Vector2( -1.98547, -81.0543 ), Vector2( -1.98547, -75.0543 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 tracks/0/type = "value"
@@ -429,6 +441,7 @@ texture = ExtResource( 13 )
 hframes = 3
 
 [node name="Idle" type="Sprite" parent="Body"]
+visible = false
 position = Vector2( -2.35651, 48.09 )
 texture = ExtResource( 1 )
 hframes = 4
@@ -441,10 +454,10 @@ texture = ExtResource( 14 )
 hframes = 4
 
 [node name="Tell" type="Sprite" parent="Body"]
-visible = false
 position = Vector2( 47, 41.5407 )
 texture = ExtResource( 8 )
 hframes = 3
+frame = 2
 
 [node name="Sweep" type="Sprite" parent="Body"]
 visible = false
@@ -470,7 +483,7 @@ texture = ExtResource( 4 )
 hframes = 5
 
 [node name="Eye" type="Sprite" parent="Body"]
-position = Vector2( -2.98547, -60.0543 )
+position = Vector2( -1.98547, -75.0543 )
 texture = ExtResource( 16 )
 hframes = 4
 frame = 3
