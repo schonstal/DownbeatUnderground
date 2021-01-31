@@ -148,5 +148,6 @@ func action_right():
 
 func action_sweep():
   hide_body()
+  animation.play("Sweep")
   sweep.visible = true
   EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_BOTH, "damage": 10 })

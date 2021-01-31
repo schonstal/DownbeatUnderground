@@ -14,10 +14,10 @@
 [ext_resource path="res://Enemies/Metal/Arms/MetalArmHorizontal0001_3x1.png" type="Texture" id=12]
 [ext_resource path="res://Enemies/Metal/Arms/MetalArmLowered0001_3x1.png" type="Texture" id=13]
 [ext_resource path="res://Enemies/Metal/MetalBlock/MetalBlock0001_4x1.png" type="Texture" id=14]
-[ext_resource path="res://Enemies/Metal/MetalSweep/MetalSweep0001_3x2.png" type="Texture" id=15]
+[ext_resource path="res://Enemies/Metal/MetalWideSweep/MetalWideSweep0001_2x3.png" type="Texture" id=15]
 [ext_resource path="res://Enemies/Metal/MetalEyes/MetalEye04_4x1.png" type="Texture" id=16]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=1]
 resource_name = "Block"
 length = 0.4
 tracks/0/type = "value"
@@ -57,8 +57,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Idle"
+[sub_resource type="Animation" id=2]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Idle:frame")
@@ -121,8 +120,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Left"
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Slash/Slash:frame")
@@ -185,8 +183,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Right"
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Slash/Slash:frame")
@@ -249,9 +246,9 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "Sweep"
-length = 0.6
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer:playback_speed")
 tracks/0/interp = 1
@@ -271,10 +268,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 5, 4 ]
+"values": [ 0, 0, 0, 1, 2, 3, 5, 4 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Body/Sweep:visible")
@@ -289,8 +286,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Tell"
+[sub_resource type="Animation" id=6]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer:playback_speed")
@@ -329,8 +325,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Flash"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -344,8 +339,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Idle"
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -411,7 +405,6 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="Block" type="Sprite" parent="Body"]
-visible = false
 position = Vector2( -14.3487, 63.4805 )
 texture = ExtResource( 14 )
 hframes = 4
@@ -423,10 +416,11 @@ texture = ExtResource( 8 )
 hframes = 3
 
 [node name="Sweep" type="Sprite" parent="Body"]
-position = Vector2( 0.460144, 43.717 )
+position = Vector2( 0.460144, 43.3609 )
 texture = ExtResource( 15 )
-vframes = 2
-hframes = 3
+vframes = 3
+hframes = 2
+frame = 4
 
 [node name="FlashTween" type="Tween" parent="Body"]
 
@@ -452,12 +446,12 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/Block = SubResource( 7 )
-anims/Idle = SubResource( 1 )
-anims/Left = SubResource( 2 )
-anims/Right = SubResource( 3 )
-anims/Sweep = SubResource( 8 )
-anims/Tell = SubResource( 4 )
+anims/Block = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/Left = SubResource( 3 )
+anims/Right = SubResource( 4 )
+anims/Sweep = SubResource( 5 )
+anims/Tell = SubResource( 6 )
 
 [node name="HitSpark" type="Sprite" parent="."]
 position = Vector2( 642.068, 300.651 )
@@ -468,5 +462,5 @@ script = ExtResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HitSpark"]
 autoplay = "Idle"
 playback_speed = 2.0
-anims/Flash = SubResource( 5 )
-anims/Idle = SubResource( 6 )
+anims/Flash = SubResource( 7 )
+anims/Idle = SubResource( 8 )
