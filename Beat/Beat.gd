@@ -2,10 +2,10 @@ extends Node2D
 
 # YEP! I'm hardcoding strings. It's a game jam. DEAL WITH IT.
 var keys = {
-    KEY_UP: "attack",
-    KEY_DOWN: "block",
-    KEY_LEFT: "dodge_left",
-    KEY_RIGHT: "dodge_right"
+  KEY_UP: "attack",
+  KEY_DOWN: "block",
+  KEY_LEFT: "dodge_left",
+  KEY_RIGHT: "dodge_right"
 }
 
 onready var icon_left = $IconLeft

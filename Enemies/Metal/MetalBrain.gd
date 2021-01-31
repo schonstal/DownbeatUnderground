@@ -117,14 +117,20 @@ func action_tell():
 func action_left():
   hide_body()
   slash.visible = true
+  eye.visible = true
+  eye.flash()
   if next_action == "left":
     show_tell_arm("lowered")
+    eye.position = Vector2(3, -82)
   elif next_action == "sweep":
     show_tell_arm("horizontal")
+    eye.position = Vector2(-1, -82)
   elif next_action == "right":
     show_tell_arm("raised")
+    eye.position = Vector2(-5, -82)
   else:
     show_tell_arm("lowered")
+    eye.position = Vector2(-1, -82)
 
   animation.stop()
   animation.play("Left")
@@ -133,14 +139,20 @@ func action_left():
 func action_right():
   hide_body()
   slash.visible = true
+  eye.visible = true
+  eye.flash()
   if next_action == "left":
     show_tell_arm("raised")
+    eye.position = Vector2(-5, -82)
   elif next_action == "sweep":
     show_tell_arm("horizontal")
+    eye.position = Vector2(0, -82)
   elif next_action == "right":
     show_tell_arm("lowered")
+    eye.position = Vector2(3, -82)
   else:
     show_tell_arm("lowered")
+    eye.position = Vector2(-1, -82)
 
   animation.stop()
   animation.play("Right")
