@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
+[ext_resource path="res://UI/digital_7/Digital7Mono.tres" type="DynamicFont" id=1]
 [ext_resource path="res://BeatSpawn.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/VHS/VHS.shader" type="Shader" id=3]
 [ext_resource path="res://pulse.gd" type="Script" id=4]
@@ -17,6 +18,7 @@
 [ext_resource path="res://Shaders/VHS/VHS.gd" type="Script" id=16]
 [ext_resource path="res://UI/VHS.gd" type="Script" id=17]
 [ext_resource path="res://UI/TempoDiamond.png" type="Texture" id=18]
+[ext_resource path="res://UI/TimeRemaining.gd" type="Script" id=19]
 [ext_resource path="res://UI/TempoBar.png" type="Texture" id=20]
 
 [sub_resource type="ShaderMaterial" id=2]
@@ -96,17 +98,17 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TempoBar" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 639.307, 85.0819 )
+position = Vector2( 639.307, 112.082 )
 texture = ExtResource( 20 )
 
 [node name="BeatSpawn" type="Node" parent="CanvasLayer"]
 script = ExtResource( 2 )
 
 [node name="TempoSpawn" type="Node2D" parent="CanvasLayer/BeatSpawn"]
-position = Vector2( 270.715, 89.7183 )
+position = Vector2( 270.715, 114.718 )
 
 [node name="PlayerHealth" type="Node2D" parent="CanvasLayer"]
-position = Vector2( 822.072, 603.705 )
+position = Vector2( 823.072, 612.705 )
 script = ExtResource( 15 )
 
 [node name="HealthBar" parent="CanvasLayer/PlayerHealth" instance=ExtResource( 7 )]
@@ -114,14 +116,14 @@ position = Vector2( 454.833, -603.843 )
 scale = Vector2( -1, 1 )
 
 [node name="EnemyHealth" type="Node2D" parent="CanvasLayer"]
-position = Vector2( 139.665, 85.9475 )
+position = Vector2( 140.665, 94.9475 )
 script = ExtResource( 8 )
 
 [node name="HealthBar" parent="CanvasLayer/EnemyHealth" instance=ExtResource( 7 )]
 position = Vector2( -139.648, -83.477 )
 
 [node name="Pulse" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 639.166, 85.8873 )
+position = Vector2( 639.166, 112.887 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 18 )
 script = ExtResource( 4 )
@@ -130,3 +132,18 @@ script = ExtResource( 4 )
 anims/pulse = SubResource( 1 )
 
 [node name="HUD" type="Node2D" parent="CanvasLayer"]
+
+[node name="TimeRemaining" type="Label" parent="CanvasLayer"]
+margin_left = 566.736
+margin_top = 7.86943
+margin_right = 710.736
+margin_bottom = 52.8694
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0.996078, 0.592157, 1 )
+text = "1:47"
+align = 1
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}

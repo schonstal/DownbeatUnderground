@@ -11,6 +11,7 @@ var error_total = 0.0
 var presses = 0
 var song_start_time = 0.0
 var time_elapsed setget ,get_time_elapsed
+var song_length setget ,get_length
 
 var TIME_GREAT = 102000
 var TIME_EXCELLENT = 43000
@@ -55,3 +56,6 @@ func _on_track_selected(track:Dictionary):
 
 func get_time_elapsed():
   return OS.get_ticks_usec() - song_start_time - 35008
+
+func get_length():
+  return audio_stream_player.stream.get_length()

@@ -441,7 +441,6 @@ texture = ExtResource( 13 )
 hframes = 3
 
 [node name="Idle" type="Sprite" parent="Body"]
-visible = false
 position = Vector2( -2.35651, 48.09 )
 texture = ExtResource( 1 )
 hframes = 4
@@ -454,6 +453,7 @@ texture = ExtResource( 14 )
 hframes = 4
 
 [node name="Tell" type="Sprite" parent="Body"]
+visible = false
 position = Vector2( 47, 41.5407 )
 texture = ExtResource( 8 )
 hframes = 3
