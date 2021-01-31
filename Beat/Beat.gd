@@ -8,6 +8,11 @@ var keys = {
     KEY_RIGHT: "dodge_right"
 }
 
+onready var icon_left = $IconLeft
+onready var icon_right = $IconRight
+onready var animation_left = $IconLeft/AnimationPlayer
+onready var animation_right = $IconRight/AnimationPlayer
+
 var beat = 0
 var note_speed = 0.0003
 
@@ -17,15 +22,18 @@ var moving = true
 var active = true
 var miss_time = 102000
 
+var appeared = false
+
 # microseconds
 onready var target_time = (beat / Conductor.bps) * 1000000.0
 
 func _ready():
-  position.x = -2000
+  position.x = 0
+  visible = false
 
 func _process(delta):
   move()
-  if position.x > target_position:
+  if icon_left.position.x > target_position:
     visible = false
   if Conductor.time_elapsed - target_time > Conductor.TIME_GREAT:
     miss()
@@ -33,7 +41,14 @@ func _process(delta):
 func move():
   if moving:
     var delta = Conductor.time_elapsed - target_time
-    position.x = target_position + delta * note_speed
+    icon_left.position.x = target_position + delta * note_speed
+    icon_right.position.x = target_position + (target_position - icon_left.position.x)
+
+    if !appeared && icon_left.position.x >= 250:
+      appeared = true
+      visible = true
+      animation_left.play("Appear")
+      animation_right.play("Appear")
 
 func _input(event):
   if event is InputEventKey:

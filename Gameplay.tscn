@@ -95,6 +95,10 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="TempoBar" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 639.307, 85.0819 )
+texture = ExtResource( 20 )
+
 [node name="BeatSpawn" type="Node" parent="CanvasLayer"]
 script = ExtResource( 2 )
 
@@ -115,10 +119,6 @@ script = ExtResource( 8 )
 
 [node name="HealthBar" parent="CanvasLayer/EnemyHealth" instance=ExtResource( 7 )]
 position = Vector2( -139.648, -83.477 )
-
-[node name="TempoBar" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 639.307, 85.0819 )
-texture = ExtResource( 20 )
 
 [node name="Pulse" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 639.166, 85.8873 )

@@ -25,6 +25,6 @@ func _on_beat(data:Dictionary):
 func spawn_beat():
   next_beat += 1
   var instance = beat_scene.instance()
-  instance.position = tempo_spawn.position
+  instance.position.y = tempo_spawn.position.y
   instance.beat = next_beat
   call_deferred("add_child", instance)
