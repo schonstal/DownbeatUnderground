@@ -13,9 +13,9 @@ func _on_player_damage(_data:Dictionary):
   tween.interpolate_property(
       color_rect.material,
       "shader_param/strength",
-      1,
+      1.25,
       0,
-      0.2,
+      0.25,
       Tween.TRANS_QUAD,
       Tween.EASE_OUT)
   tween.start()
