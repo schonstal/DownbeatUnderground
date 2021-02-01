@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_You_Shall_Faulter_brighter_1.ogg-394611aa872d99f7f17e0e5e7b495d4a.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_You_Shall_Faulter_brighter_1.ogg"
+dest_files=[ "res://.import/JGJ_You_Shall_Faulter_brighter_1.ogg-394611aa872d99f7f17e0e5e7b495d4a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_Doors_Collide.ogg-6beb002a12afcb4b9f2b402e77e8d92a.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_Doors_Collide.ogg"
+dest_files=[ "res://.import/JGJ_Doors_Collide.ogg-6beb002a12afcb4b9f2b402e77e8d92a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

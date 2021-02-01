@@ -109,11 +109,15 @@ func hurt(damage):
   if health <= 0:
     health = 0
     die()
+    EventBus.emit_signal("play_sound", { "node_name": "PlayerDeath" })
+  elif !blocking:
+    EventBus.emit_signal("play_sound", { "node_name": "PlayerHurt%s" % (randi() % 2 + 1) })
 
   EventBus.emit_signal("player_hurt", { "health": health, "max_health": max_health })
 
 func die():
   animation.play("Death")
+  EventBus.emit_signal("play_sound", { "node_name": "PlayerDeath" })
   EventBus.emit_signal("game_over", { "type": "ko", "victor": "enemy" })
 
 func _on_game_over(data:Dictionary):

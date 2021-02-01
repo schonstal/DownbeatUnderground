@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_Enemy_Horizontal_Swipe.ogg-c284abf9aec172f3c41f5e6c5cff0525.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_Enemy_Horizontal_Swipe.ogg"
+dest_files=[ "res://.import/JGJ_Enemy_Horizontal_Swipe.ogg-c284abf9aec172f3c41f5e6c5cff0525.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

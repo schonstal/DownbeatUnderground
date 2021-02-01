@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_Put_Me_Back_In_Coach_playervoice.ogg-9e23e0fa2ab4852de73b1b28a6d5e9df.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_Put_Me_Back_In_Coach_playervoice.ogg"
+dest_files=[ "res://.import/JGJ_Put_Me_Back_In_Coach_playervoice.ogg-9e23e0fa2ab4852de73b1b28a6d5e9df.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_Grunt_1.ogg-44d8bd940edbb9f603f9bf6c693c4e8a.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_Grunt_1.ogg"
+dest_files=[ "res://.import/JGJ_Grunt_1.ogg-44d8bd940edbb9f603f9bf6c693c4e8a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

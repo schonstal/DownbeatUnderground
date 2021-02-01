@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mech.png-ecc55fbfb636b15e273c8090e08b30d5.stex"
+path="res://.import/Teeth.png-ce643189a9edd65fd1e8b9f759141ab0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mech.png"
-dest_files=[ "res://.import/mech.png-ecc55fbfb636b15e273c8090e08b30d5.stex" ]
+source_file="res://UI/Transition/Teeth.png"
+dest_files=[ "res://.import/Teeth.png-ce643189a9edd65fd1e8b9f759141ab0.stex" ]
 
 [params]
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_Enemy_Roar_2.ogg-16a78b271dc682aeb530b113c51732b7.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_Enemy_Roar_2.ogg"
+dest_files=[ "res://.import/JGJ_Enemy_Roar_2.ogg-16a78b271dc682aeb530b113c51732b7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

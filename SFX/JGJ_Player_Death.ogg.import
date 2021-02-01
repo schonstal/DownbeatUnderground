@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_Player_Death.ogg-22030f38ac9a942f385f1ee6786920b3.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_Player_Death.ogg"
+dest_files=[ "res://.import/JGJ_Player_Death.ogg-22030f38ac9a942f385f1ee6786920b3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

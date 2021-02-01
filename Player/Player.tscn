@@ -602,14 +602,11 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 640, 603 )
-scale = Vector2( -1, 1 )
+position = Vector2( 640, 600 )
 z_index = 1
 texture = ExtResource( 1 )
-offset = Vector2( 200, -128 )
 vframes = 6
 hframes = 4
-frame = 23
 
 [node name="DashLines" type="Sprite" parent="Sprite"]
 visible = false

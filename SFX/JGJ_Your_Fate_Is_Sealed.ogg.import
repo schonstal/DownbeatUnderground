@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_Your_Fate_Is_Sealed.ogg-6ee89cdddd6a7530a1e6d472d368edcd.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_Your_Fate_Is_Sealed.ogg"
+dest_files=[ "res://.import/JGJ_Your_Fate_Is_Sealed.ogg-6ee89cdddd6a7530a1e6d472d368edcd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

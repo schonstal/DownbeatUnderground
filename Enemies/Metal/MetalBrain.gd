@@ -87,6 +87,9 @@ func _on_enemy_damage(data:Dictionary):
     if health <= 0:
       health = 0
       EventBus.emit_signal("game_over", { "type": "ko", "victor": "player" })
+      EventBus.emit_signal("play_sound", { "node_name": "EnemyDeath" })
+    else:
+      EventBus.emit_signal("play_sound", { "node_name": "EnemyHurt%s" % (randi() % 4 + 1) })
 
     EventBus.emit_signal("enemy_hurt", { "health": health, "max_health": max_health })
 
