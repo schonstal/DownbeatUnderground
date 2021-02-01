@@ -24,6 +24,7 @@ var audio_stream_player
 func _ready():
   EventBus.connect("track_selected", self, "_on_track_selected")
   EventBus.connect("game_over", self, "_on_game_over")
+  audio_stream_player = AudioStreamPlayer.new()
 
 func play_track():
   if audio_stream_player != null:

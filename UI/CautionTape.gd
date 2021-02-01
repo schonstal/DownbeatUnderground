@@ -11,7 +11,9 @@ onready var countdown_sound = $CountdownSound
 
 onready var game_over_sound = $GameOver
 onready var ko_sound = $KO
+onready var tko_sound = $TKO
 onready var you_lose_sound = $YouLose
+onready var you_win_sound = $YouWin
 
 func _ready():
   EventBus.connect("beat", self, "_on_beat")
@@ -48,6 +50,7 @@ func _on_game_over(data:Dictionary):
     ko_sound.play()
   else:
     titles.frame = 5
+    tko_sound.play()
 
   title_animation.stop()
   title_animation.play("Appear")
@@ -56,9 +59,10 @@ func _on_game_over(data:Dictionary):
 
   if data.victor == "player":
     titles.frame = 7
+    you_win_sound.play()
   else:
-    you_lose_sound.play()
     titles.frame = 6
+    you_lose_sound.play()
 
   title_animation.stop()
   title_animation.play("Appear")

@@ -5,4 +5,7 @@
 *.app
 *.pck
 *.zip
+*.wasm
+*.html
+*.js
 ESM_*

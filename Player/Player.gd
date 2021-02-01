@@ -38,6 +38,10 @@ func idle():
   })
 
 func attack():
+  if lane == Game.LANE_LEFT:
+    sprite.scale.x = -1
+  else:
+    sprite.scale.x = 1
   animation.stop()
   animation.play("Attack")
 

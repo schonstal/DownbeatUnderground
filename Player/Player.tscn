@@ -607,16 +607,13 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 640, 612 )
+position = Vector2( 640, 600 )
 z_index = 1
 texture = ExtResource( 1 )
-offset = Vector2( 250, -57 )
 vframes = 6
 hframes = 4
-frame = 15
 
 [node name="DashLines" type="Sprite" parent="Sprite"]
-visible = false
 position = Vector2( 9.22388, 10.1324 )
 rotation = 3.14159
 scale = Vector2( -1, -1 )
@@ -636,7 +633,7 @@ smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-playback_speed = 1.5
+playback_speed = 2.0
 anims/Attack = SubResource( 1 )
 anims/Block = SubResource( 2 )
 anims/Death = SubResource( 3 )

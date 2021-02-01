@@ -50,6 +50,13 @@ func _ready():
   perform_sequences()
 
 func load_sequences():
+  var s = {}
+  var hack = ["Idle", "Left", "Right", "Paradiddle", "Sweep"]
+  for a in hack:
+    s[a] = load("res://Enemies/Sequences/%s.gd" % a)
+  return s
+
+  # TODO: Figure out why this doesn't work when exported
   var sequences = {}
   var dir = Directory.new()
   dir.open("res://Enemies/Sequences")
@@ -94,6 +101,7 @@ func _on_enemy_damage(data:Dictionary):
     EventBus.emit_signal("enemy_hurt", { "health": health, "max_health": max_health })
 
 func perform_sequences():
+  print(sequences)
   var sequence = sequences.Left.new()
 
   while true:
