@@ -15,6 +15,14 @@ onready var block = $Body/Block
 onready var sweep = $Body/Sweep
 onready var slash = $Body/Slash
 onready var eye = $Body/Eye
+onready var death = $Body/Death
+onready var victory = $Body/Victory
+
+onready var big_tell = $Body/BigTell
+onready var big_tell_arms = $Body/BigTellArms
+onready var big_raised_arm = $Body/BigTellArms/Raised
+onready var big_horizontal_arm = $Body/BigTellArms/Horizontal
+onready var big_lowered_arm = $Body/BigTellArms/Lowered
 
 var state = STATE_READY
 
@@ -36,6 +44,9 @@ func _ready():
   sequences = load_sequences()
   EventBus.connect("beat_hit", self, "_on_beat_hit")
   EventBus.connect("enemy_damage", self, "_on_enemy_damage")
+  EventBus.connect("game_over", self, "_on_game_over")
+  hide_body()
+  victory.visible = true
   perform_sequences()
 
 func load_sequences():
@@ -53,6 +64,17 @@ func load_sequences():
   dir.list_dir_end()
 
   return sequences
+
+func _on_game_over(data:Dictionary):
+  if data.victor == "enemy":
+    yield(get_tree().create_timer(0.5), "timeout")
+    hide_body()
+    victory.visible = true
+    animation.play("Victory")
+  else:
+    hide_body()
+    death.visible = true
+    animation.play("Death")
 
 func _on_beat_hit(data:Dictionary):
   emit_signal("tick")
@@ -94,6 +116,19 @@ func show_tell_arm(arm):
   elif arm == "lowered":
    lowered_arm.visible = true
 
+func show_big_tell_arm(arm):
+  big_tell_arms.visible = true
+  big_raised_arm.visible = false
+  big_horizontal_arm.visible = false
+  big_lowered_arm.visible = false
+
+  if arm == "raised":
+   big_raised_arm.visible = true
+  elif arm == "horizontal":
+   big_horizontal_arm.visible = true
+  elif arm == "lowered":
+   big_lowered_arm.visible = true
+
 func hide_body():
   idle.visible = false
   tell_arm.visible = false
@@ -103,6 +138,10 @@ func hide_body():
   slash.visible = false
   eye.visible = false
   eye.offset.x = 0
+  victory.visible = false
+  death.visible = false
+  big_tell.visible = false
+  big_tell_arms.visible = false
 
 func block():
   hide_body()
@@ -115,6 +154,15 @@ func action_idle():
   idle.visible = true
   animation.stop()
   animation.play("Idle")
+  EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
+
+func action_big_tell():
+  hide_body()
+  EventBus.emit_signal("play_sound", { "node_name": "ParadiddleRoar" })
+  big_tell.visible = true
+  animation.stop()
+  animation.play("BigTell")
+  show_big_tell_arm("horizontal")
   EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
 
 func action_tell():

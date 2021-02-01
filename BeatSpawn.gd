@@ -2,7 +2,7 @@ extends Node
 
 export(Resource) var beat_scene = preload("res://Beat/Beat.tscn")
 
-var next_beat = 0
+var next_beat = 15
 onready var tempo_spawn = $TempoSpawn
 
 # Declare member variables here. Examples:
@@ -15,10 +15,7 @@ export(Resource) var stream
 func _ready():
   EventBus.connect("beat", self, "_on_beat")
   EventBus.emit_signal("track_selected", { "bpm": 80, "stream": stream })
-  
-  for i in range(0, 12):
-    spawn_beat()
-  
+
 func _on_beat(data:Dictionary):
   spawn_beat()
 

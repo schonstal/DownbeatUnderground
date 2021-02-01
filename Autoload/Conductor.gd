@@ -21,6 +21,7 @@ onready var audio_stream_player = $AudioStreamPlayer
 
 func _ready():
   EventBus.connect("track_selected", self, "_on_track_selected")
+  EventBus.connect("game_over", self, "_on_game_over")
 
 func play_track():
   var time_delay = AudioServer.get_time_to_next_mix() +\
@@ -54,8 +55,14 @@ func _on_track_selected(track:Dictionary):
   #bpm = track.bpm
   play_track()
 
+func _on_game_over(data:Dictionary):
+  audio_stream_player.stop()
+
 func get_time_elapsed():
-  return OS.get_ticks_usec() - song_start_time - 35008
+  if audio_stream_player.playing:
+    return OS.get_ticks_usec() - song_start_time - 35008
+  else:
+    return 0
 
 func get_length():
   return audio_stream_player.stream.get_length()

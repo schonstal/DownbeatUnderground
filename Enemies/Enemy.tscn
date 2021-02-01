@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Enemies/Metal/MetalIdle/MetalIdle0001_4x1.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Metal/MetalBrain.gd" type="Script" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://Enemies/Metal/MetalWideSweep/MetalWideSweep0001_2x3.png" type="Texture" id=15]
 [ext_resource path="res://Enemies/Metal/MetalEyes/MetalEye04_4x1.png" type="Texture" id=16]
 [ext_resource path="res://Enemies/Eye.gd" type="Script" id=17]
+[ext_resource path="res://Enemies/Metal/MetalDeath/MetalDeath0001_4x1.png" type="Texture" id=18]
+[ext_resource path="res://Enemies/Metal/MetalVictory/MetalVictory0001_3x2.png" type="Texture" id=19]
+[ext_resource path="res://Enemies/Metal/MetalBigTell/MetalBigTell0001_5x1.png" type="Texture" id=20]
 
 [sub_resource type="Animation" id=9]
 resource_name = "Spark"
@@ -32,6 +35,34 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "BigTell"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/BigTell:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimationPlayer:playback_speed")
@@ -108,6 +139,34 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( -1.98547, -24.7881 ), Vector2( -1.98547, -36.7881 ), Vector2( -1, -47.788 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Death"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Death:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -390,6 +449,35 @@ tracks/3/keys = {
 "values": [ Vector2( -1.98547, -87.0543 ), Vector2( -1.98547, -81.0543 ), Vector2( -1.98547, -75.0543 ) ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "Victory"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Victory:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
 [sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -464,6 +552,87 @@ position = Vector2( 393.643, 507.869 )
 texture = ExtResource( 13 )
 hframes = 3
 
+[node name="BigTellArms" type="Node2D" parent="Body"]
+visible = false
+position = Vector2( -640, -359.711 )
+
+[node name="Raised" type="Node2D" parent="Body/BigTellArms"]
+
+[node name="RaisedR" type="Node2D" parent="Body/BigTellArms/Raised"]
+
+[node name="Blade" type="Sprite" parent="Body/BigTellArms/Raised/RaisedR"]
+position = Vector2( 256.887, 154.436 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
+
+[node name="Arm" type="Sprite" parent="Body/BigTellArms/Raised/RaisedR"]
+position = Vector2( 360.781, 273.134 )
+texture = ExtResource( 9 )
+hframes = 3
+
+[node name="RaisedL" type="Node2D" parent="Body/BigTellArms/Raised"]
+position = Vector2( 1278.65, -0.670502 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Blade" type="Sprite" parent="Body/BigTellArms/Raised/RaisedL"]
+position = Vector2( 256.887, 154.436 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
+
+[node name="Arm" type="Sprite" parent="Body/BigTellArms/Raised/RaisedL"]
+position = Vector2( 360.781, 273.134 )
+texture = ExtResource( 9 )
+hframes = 3
+
+[node name="Horizontal" type="Node2D" parent="Body/BigTellArms"]
+
+[node name="HorizontalR" type="Node2D" parent="Body/BigTellArms/Horizontal"]
+
+[node name="Arm" type="Sprite" parent="Body/BigTellArms/Horizontal/HorizontalR"]
+position = Vector2( 282.306, 393.394 )
+texture = ExtResource( 12 )
+hframes = 3
+
+[node name="HorizontalL" type="Node2D" parent="Body/BigTellArms/Horizontal"]
+position = Vector2( 1278.65, -0.670502 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Arm" type="Sprite" parent="Body/BigTellArms/Horizontal/HorizontalL"]
+position = Vector2( 282.306, 393.394 )
+texture = ExtResource( 12 )
+hframes = 3
+
+[node name="Lowered" type="Node2D" parent="Body/BigTellArms"]
+
+[node name="LoweredR" type="Node2D" parent="Body/BigTellArms/Lowered"]
+
+[node name="Blade" type="Sprite" parent="Body/BigTellArms/Lowered/LoweredR"]
+position = Vector2( 216.519, 642.048 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
+
+[node name="Arm" type="Sprite" parent="Body/BigTellArms/Lowered/LoweredR"]
+position = Vector2( 393.643, 507.869 )
+texture = ExtResource( 13 )
+hframes = 3
+
+[node name="LoweredL" type="Node2D" parent="Body/BigTellArms/Lowered"]
+position = Vector2( 1278.65, -0.670502 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Blade" type="Sprite" parent="Body/BigTellArms/Lowered/LoweredL"]
+position = Vector2( 216.519, 642.048 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
+
+[node name="Arm" type="Sprite" parent="Body/BigTellArms/Lowered/LoweredL"]
+position = Vector2( 393.643, 507.869 )
+texture = ExtResource( 13 )
+hframes = 3
+
 [node name="Idle" type="Sprite" parent="Body"]
 visible = false
 position = Vector2( -2.35651, 48.09 )
@@ -471,11 +640,30 @@ texture = ExtResource( 1 )
 hframes = 4
 frame = 3
 
+[node name="Death" type="Sprite" parent="Body"]
+visible = false
+position = Vector2( -2.35651, 40.09 )
+texture = ExtResource( 18 )
+hframes = 4
+
+[node name="Victory" type="Sprite" parent="Body"]
+visible = false
+position = Vector2( -2.35651, 38.09 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 3
+
+[node name="BigTell" type="Sprite" parent="Body"]
+visible = false
+position = Vector2( -2.35651, 5.09 )
+texture = ExtResource( 20 )
+hframes = 5
+
 [node name="Block" type="Sprite" parent="Body"]
+visible = false
 position = Vector2( -14.3487, 63.4805 )
 texture = ExtResource( 14 )
 hframes = 4
-frame = 3
 
 [node name="Tell" type="Sprite" parent="Body"]
 visible = false
@@ -508,7 +696,8 @@ texture = ExtResource( 4 )
 hframes = 5
 
 [node name="Eye" type="Sprite" parent="Body"]
-position = Vector2( -1, -47.788 )
+visible = false
+position = Vector2( -1.98547, -24.7881 )
 texture = ExtResource( 16 )
 hframes = 4
 frame = 3
@@ -519,13 +708,17 @@ playback_speed = 2.0
 anims/Spark = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Victory"
 playback_speed = 2.0
+anims/BigTell = SubResource( 12 )
 anims/Block = SubResource( 1 )
+anims/Death = SubResource( 10 )
 anims/Idle = SubResource( 2 )
 anims/Left = SubResource( 3 )
 anims/Right = SubResource( 4 )
 anims/Sweep = SubResource( 5 )
 anims/Tell = SubResource( 6 )
+anims/Victory = SubResource( 11 )
 
 [node name="HitSpark" type="Sprite" parent="."]
 position = Vector2( 642.068, 300.651 )

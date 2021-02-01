@@ -22,6 +22,7 @@ var blocking = false
 func _ready():
   EventBus.connect("beat_hit", self, "_on_beat_hit")
   EventBus.connect("player_damage", self, "_on_player_damage")
+  EventBus.connect("game_over", self, "_on_game_over")
 
 func idle():
   if lane == Game.LANE_LEFT:
@@ -112,7 +113,13 @@ func hurt(damage):
   EventBus.emit_signal("player_hurt", { "health": health, "max_health": max_health })
 
 func die():
+  animation.play("Death")
   EventBus.emit_signal("game_over", { "type": "ko", "victor": "enemy" })
+
+func _on_game_over(data:Dictionary):
+  if data.victor == "player":
+    yield(get_tree().create_timer(5.0), "timeout")
+    animation.play("Victory")
 
 func _on_player_damage(data:Dictionary):
   hurt(data.damage)

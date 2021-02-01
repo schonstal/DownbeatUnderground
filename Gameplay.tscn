@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://UI/digital_7/Digital7Mono.tres" type="DynamicFont" id=1]
 [ext_resource path="res://BeatSpawn.gd" type="Script" id=2]
@@ -27,6 +27,10 @@
 [ext_resource path="res://UI/CountDown/Titles.png" type="Texture" id=25]
 [ext_resource path="res://UI/CautionTape.gd" type="Script" id=26]
 [ext_resource path="res://SFX/JGJ_321_Fight_Half_time.ogg" type="AudioStream" id=27]
+[ext_resource path="res://SFX/JGJ_You_Lose_Voice.ogg" type="AudioStream" id=28]
+[ext_resource path="res://SFX/JGJ_KO_Voice.ogg" type="AudioStream" id=29]
+[ext_resource path="res://SFX/JGJ_game_over_music.ogg" type="AudioStream" id=30]
+[ext_resource path="res://SFX/JGJ_Enemy_Roar_1.ogg" type="AudioStream" id=31]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
@@ -194,6 +198,9 @@ script = ExtResource( 10 )
 [node name="Dislike" type="AudioStreamPlayer" parent="SoundPlayer"]
 stream = ExtResource( 11 )
 
+[node name="ParadiddleRoar" type="AudioStreamPlayer" parent="SoundPlayer"]
+stream = ExtResource( 31 )
+
 [node name="Windup" type="AudioStreamPlayer" parent="SoundPlayer"]
 stream = ExtResource( 12 )
 
@@ -353,3 +360,13 @@ anims/Appear = SubResource( 4 )
 
 [node name="CountdownSound" type="AudioStreamPlayer" parent="HUD/CautionTape"]
 stream = ExtResource( 27 )
+
+[node name="GameOver" type="AudioStreamPlayer" parent="HUD/CautionTape"]
+stream = ExtResource( 30 )
+volume_db = -7.0
+
+[node name="YouLose" type="AudioStreamPlayer" parent="HUD/CautionTape"]
+stream = ExtResource( 28 )
+
+[node name="KO" type="AudioStreamPlayer" parent="HUD/CautionTape"]
+stream = ExtResource( 29 )
