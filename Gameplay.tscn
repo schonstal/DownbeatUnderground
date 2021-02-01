@@ -341,12 +341,11 @@ playback_speed = 2.0
 anims/Appear = SubResource( 3 )
 
 [node name="Titles" type="Sprite" parent="HUD/CautionTape"]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 640, 402.098 )
 texture = ExtResource( 25 )
 vframes = 3
 hframes = 3
-frame = 2
+frame = 8
 
 [node name="TitleAnimation" type="AnimationPlayer" parent="HUD/CautionTape"]
 playback_speed = 4.0

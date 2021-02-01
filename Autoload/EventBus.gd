@@ -14,3 +14,6 @@ signal enemy_hurt(data)
 signal player_attack(data)
 signal player_damage(data)
 signal player_hurt(data)
+
+# Gameplay
+signal game_over(data)

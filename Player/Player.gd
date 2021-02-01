@@ -112,7 +112,7 @@ func hurt(damage):
   EventBus.emit_signal("player_hurt", { "health": health, "max_health": max_health })
 
 func die():
-  pass
+  EventBus.emit_signal("game_over", { "type": "ko", "victor": "enemy" })
 
 func _on_player_damage(data:Dictionary):
   hurt(data.damage)

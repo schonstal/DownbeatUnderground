@@ -63,8 +63,9 @@ func _on_enemy_damage(data:Dictionary):
   else:
     health -= data.damage
     if health <= 0:
-      print("dead")
       health = 0
+      EventBus.emit_signal("game_over", { "type": "ko", "victor": "player" })
+
     EventBus.emit_signal("enemy_hurt", { "health": health, "max_health": max_health })
 
 func perform_sequences():
