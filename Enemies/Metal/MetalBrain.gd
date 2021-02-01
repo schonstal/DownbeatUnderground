@@ -179,8 +179,10 @@ func action_tell():
     body.scale.x = -1
     eye.offset.x = -3
     show_tell_arm("raised")
-  else:
+  elif next_action == "sweep":
     show_tell_arm("horizontal")
+  else:
+    show_tell_arm("lowered")
 
   tell.visible = true
   animation.stop()

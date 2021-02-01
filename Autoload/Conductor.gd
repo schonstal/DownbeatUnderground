@@ -17,15 +17,24 @@ var TIME_GREAT = 102000
 var TIME_EXCELLENT = 43000
 var TIME_FANTASTIC = 21500
 
-onready var audio_stream_player = $AudioStreamPlayer
+export(Resource) var stream = preload("res://Music/metalstep140.ogg")
+
+var audio_stream_player
 
 func _ready():
   EventBus.connect("track_selected", self, "_on_track_selected")
   EventBus.connect("game_over", self, "_on_game_over")
 
 func play_track():
+  if audio_stream_player != null:
+    audio_stream_player.queue_free()
+  audio_stream_player = AudioStreamPlayer.new()
+  call_deferred("add_child", audio_stream_player)
+  audio_stream_player.stream = stream
+
   var time_delay = AudioServer.get_time_to_next_mix() +\
                    AudioServer.get_output_latency()
+  beat = 0
 
   yield(get_tree().create_timer(time_delay), "timeout")
   print(time_delay)

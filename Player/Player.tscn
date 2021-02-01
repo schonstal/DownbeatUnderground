@@ -119,7 +119,7 @@ tracks/3/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 resource_name = "Death"
 length = 0.5
 tracks/0/type = "value"
@@ -182,9 +182,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [ 1.5 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Camera2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ) ]
+}
 
-[sub_resource type="Animation" id=3]
-resource_name = "Dodge Left"
+[sub_resource type="Animation" id=4]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
@@ -259,8 +270,7 @@ tracks/5/keys = {
 "values": [ Vector2( 640, 603 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Dodge Right"
+[sub_resource type="Animation" id=5]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
@@ -335,8 +345,7 @@ tracks/5/keys = {
 "values": [ Vector2( 640, 603 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Hurt"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
@@ -386,7 +395,7 @@ tracks/3/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
@@ -448,7 +457,7 @@ tracks/4/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=8]
 resource_name = "Victory"
 length = 0.4
 tracks/0/type = "value"
@@ -488,8 +497,7 @@ tracks/2/keys = {
 "values": [ Vector2( 640, 603 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Dash"
+[sub_resource type="Animation" id=9]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/DashLines:frame")
@@ -528,8 +536,7 @@ tracks/2/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Idle"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/DashLines:visible")
 tracks/0/interp = 1
@@ -543,8 +550,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "Block"
+[sub_resource type="Animation" id=11]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("DashAnimation:playback_speed")
@@ -583,8 +589,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Idle"
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/BlockEffect:visible")
 tracks/0/interp = 1
@@ -602,11 +607,13 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 640, 600 )
+position = Vector2( 640, 612 )
 z_index = 1
 texture = ExtResource( 1 )
+offset = Vector2( 250, -57 )
 vframes = 6
 hframes = 4
+frame = 15
 
 [node name="DashLines" type="Sprite" parent="Sprite"]
 visible = false
@@ -623,30 +630,30 @@ texture = ExtResource( 4 )
 hframes = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 615, 360 )
+position = Vector2( 640, 360 )
 current = true
 smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-playback_speed = 2.0
+playback_speed = 1.5
 anims/Attack = SubResource( 1 )
 anims/Block = SubResource( 2 )
-anims/Death = SubResource( 11 )
-"anims/Dodge Left" = SubResource( 3 )
-"anims/Dodge Right" = SubResource( 4 )
-anims/Hurt = SubResource( 5 )
-anims/Idle = SubResource( 6 )
-anims/Victory = SubResource( 12 )
+anims/Death = SubResource( 3 )
+"anims/Dodge Left" = SubResource( 4 )
+"anims/Dodge Right" = SubResource( 5 )
+anims/Hurt = SubResource( 6 )
+anims/Idle = SubResource( 7 )
+anims/Victory = SubResource( 8 )
 
 [node name="DashAnimation" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 playback_speed = 2.0
-anims/Dash = SubResource( 7 )
-anims/Idle = SubResource( 8 )
+anims/Dash = SubResource( 9 )
+anims/Idle = SubResource( 10 )
 
 [node name="BlockAnimation" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 playback_speed = 2.0
-anims/Block = SubResource( 9 )
-anims/Idle = SubResource( 10 )
+anims/Block = SubResource( 11 )
+anims/Idle = SubResource( 12 )
