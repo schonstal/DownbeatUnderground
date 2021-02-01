@@ -29,6 +29,9 @@ signal tick
 
 onready var animation = $AnimationPlayer
 
+var max_health = 700.0
+var health = 700.0
+
 func _ready():
   sequences = load_sequences()
   EventBus.connect("beat_hit", self, "_on_beat_hit")
@@ -57,6 +60,12 @@ func _on_beat_hit(data:Dictionary):
 func _on_enemy_damage(data:Dictionary):
   if previous_action == "idle" && current_action == "idle":
     block()
+  else:
+    health -= data.damage
+    if health <= 0:
+      print("dead")
+      health = 0
+    EventBus.emit_signal("enemy_hurt", { "health": health, "max_health": max_health })
 
 func perform_sequences():
   var sequence = sequences.Left.new()

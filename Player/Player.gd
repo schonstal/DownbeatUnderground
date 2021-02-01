@@ -15,7 +15,8 @@ var lane = Game.LANE_LEFT
 
 var state = STATE_IDLE
 
-var health = 30
+var max_health = 100.0
+var health = 100.0
 var blocking = false
 
 func _ready():
@@ -98,7 +99,7 @@ func hurt(damage):
     sprite.scale.x = 1
 
   if blocking:
-    health -= damage * 0.25
+    health -= damage - 8
     block_animation.play("Block")
   else:
     health -= damage
@@ -107,6 +108,8 @@ func hurt(damage):
   if health <= 0:
     health = 0
     die()
+
+  EventBus.emit_signal("player_hurt", { "health": health, "max_health": max_health })
 
 func die():
   pass

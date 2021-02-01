@@ -3,9 +3,9 @@ extends Node2D
 onready var flash_tween = $FlashTween
 
 func _ready():
-  EventBus.connect("enemy_damage", self, "_on_enemy_damage")
+  EventBus.connect("enemy_hurt", self, "_on_enemy_hurt")
   
-func _on_enemy_damage(_data:Dictionary):
+func _on_enemy_hurt(_data:Dictionary):
   flash_tween.stop_all()
   flash_tween.interpolate_property(
     self,
