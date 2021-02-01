@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JGJ_321_Fight_Fast.ogg-572dbb9f65ed197d7d2a45ad07502431.oggstr"
+
+[deps]
+
+source_file="res://SFX/JGJ_321_Fight_Fast.ogg"
+dest_files=[ "res://.import/JGJ_321_Fight_Fast.ogg-572dbb9f65ed197d7d2a45ad07502431.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
