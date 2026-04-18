@@ -26,9 +26,6 @@ var STATE_BUSY = "busy"
 
 var state = STATE_READY
 
-var sequences = {}
-var start_sequence = "Idle"
-
 var next_action = null
 var current_action = null
 var previous_action = "idle"
@@ -41,36 +38,12 @@ var max_health = 700.0
 var health = 700.0
 
 func _ready():
-  sequences = load_sequences()
   EventBus.connect("beat_hit", Callable(self, "_on_beat_hit"))
   EventBus.connect("enemy_damage", Callable(self, "_on_enemy_damage"))
   EventBus.connect("game_over", Callable(self, "_on_game_over"))
   hide_body()
   victory.visible = true
   perform_sequences()
-
-func load_sequences():
-  var s = {}
-  var hack = ["Idle", "Left", "Right", "Paradiddle", "Sweep"]
-  for a in hack:
-    s[a] = load("res://Enemies/Sequences/%s.gd" % a)
-  return s
-
-  # TODO: Figure out why this doesn't work when exported
-  var sequences = {}
-  var dir = DirAccess.new()
-  dir.open("res://Enemies/Sequences")
-  dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
-
-  var file = dir.get_next()
-  while file != "":
-    if file.ends_with(".gd"):
-      sequences[file.get_file().rstrip(".gd")] = load("res://Enemies/Sequences/%s" % file)
-    file = dir.get_next()
-
-  dir.list_dir_end()
-
-  return sequences
 
 func _on_game_over(data:Dictionary):
   if data.victor == "enemy":
@@ -101,8 +74,7 @@ func _on_enemy_damage(data:Dictionary):
     EventBus.emit_signal("enemy_hurt", { "health": health, "max_health": max_health })
 
 func perform_sequences():
-  print(sequences)
-  var sequence = sequences.Left.new()
+  var sequence = LeftSequence.new()
 
   while true:
     for action in sequence:
@@ -112,7 +84,7 @@ func perform_sequences():
       next_action = sequence.next_action
       call("action_%s" % action)
 
-    sequence = sequences[sequence.next_sequence].new()
+    sequence = sequence.next_sequence.new()
 
 func show_tell_arm(arm):
   tell_arm.visible = true
