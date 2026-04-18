@@ -9,4 +9,5 @@
 *.html
 *.js
 .godot
+Session.vim
 ESM_*
