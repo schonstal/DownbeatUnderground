@@ -2,7 +2,7 @@
 
 [ext_resource path="res://SFX/JGJ_Doors_Collide.ogg" type="AudioStream" id=1]
 [ext_resource path="res://UI/Transition/Transition.gd" type="Script" id=2]
-[ext_resource path="res://UI/Transition/Doors/DoorLights_2x1.png" type="Texture" id=3]
+[ext_resource path="res://UI/Transition/Doors/DoorLights_2x1.png" type="Texture2D" id=3]
 [ext_resource path="res://SFX/JGJ_Doors_Moving.ogg" type="AudioStream" id=4]
 
 [node name="Transition" type="CanvasLayer"]
@@ -10,14 +10,14 @@ layer = 100
 script = ExtResource( 2 )
 shake_duration = 0.5
 
-[node name="Left" type="Sprite" parent="."]
+[node name="Left" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource( 3 )
 centered = false
 flip_h = true
 hframes = 2
 
-[node name="Right" type="Sprite" parent="."]
+[node name="Right" type="Sprite2D" parent="."]
 visible = false
 position = Vector2( 944.032, 0 )
 texture = ExtResource( 3 )

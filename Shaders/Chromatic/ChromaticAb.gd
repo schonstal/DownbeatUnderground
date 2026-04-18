@@ -1,15 +1,15 @@
 extends ColorRect
 
-onready var blur_tween = $BlurTween
+@onready var blur_tween = $BlurTween
 var strength = 0.1
 
 func _ready():
   mouse_filter = MOUSE_FILTER_IGNORE
-  EventBus.connect("blur_chromatic", self, "_on_blur_chromatic")
-  EventBus.connect("victory", self, "_on_victory")
+  EventBus.connect("blur_chromatic", Callable(self, "_on_blur_chromatic"))
+  EventBus.connect("victory", Callable(self, "_on_victory"))
 
 func _process(delta):
-  material.set_shader_param("amount", strength)
+  material.set_shader_parameter("amount", strength)
 
 func _on_blur_chromatic(size, duration):
   blur_tween.interpolate_property(

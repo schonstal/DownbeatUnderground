@@ -8,10 +8,10 @@ var keys = {
   KEY_RIGHT: "dodge_right"
 }
 
-onready var icon_left = $IconLeft
-onready var icon_right = $IconRight
-onready var animation_left = $IconLeft/AnimationPlayer
-onready var animation_right = $IconRight/AnimationPlayer
+@onready var icon_left = $IconLeft
+@onready var icon_right = $IconRight
+@onready var animation_left = $IconLeft/AnimationPlayer
+@onready var animation_right = $IconRight/AnimationPlayer
 
 var beat = 0
 var note_speed = 0.0003
@@ -25,7 +25,7 @@ var miss_time = 102000
 var appeared = false
 
 # microseconds
-onready var target_time = (beat / Conductor.bps) * 1000000.0
+@onready var target_time = (beat / Conductor.bps) * 1000000.0
 
 func _ready():
   position.x = 0
@@ -56,7 +56,7 @@ func _input(event):
       var delta = Conductor.time_elapsed - target_time
 
       if abs(delta) < Conductor.TIME_GREAT:
-        hit(delta, event.scancode)
+        hit(delta, event.keycode)
 
 func miss():
   EventBus.emit_signal("beat_hit", {
@@ -66,8 +66,8 @@ func miss():
   })
   clear_note()
 
-func hit(delta, scancode):
-  if !(keys.has(scancode) && active):
+func hit(delta, keycode):
+  if !(keys.has(keycode) && active):
     return
 
   active = false
@@ -89,7 +89,7 @@ func hit(delta, scancode):
   EventBus.emit_signal("beat_hit", {
     "beat": beat,
     "judgement": judgement,
-    "action": keys[scancode]
+    "action": keys[keycode]
   })
 
   clear_note()

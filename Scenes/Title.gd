@@ -1,1 +1,1 @@
-extends Sprite
+extends Sprite2D

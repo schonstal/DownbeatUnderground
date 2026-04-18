@@ -5,5 +5,5 @@ func _ready():
 
 var time = 0
 func _process(delta):
-  material.set_shader_param("time", time)
+  material.set_shader_parameter("time", time)
   time += delta

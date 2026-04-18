@@ -1,9 +1,9 @@
-extends Sprite
+extends Sprite2D
 
-onready var animation = $AnimationPlayer
+@onready var animation = $AnimationPlayer
 
 func _ready():
-  EventBus.connect("beat", self, "_on_beat")
+  EventBus.connect("beat", Callable(self, "_on_beat"))
 
 func _on_beat(_data:Dictionary):
   animation.stop()

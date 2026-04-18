@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Arena/BackgroundCrowd.png" type="Texture" id=1]
-[ext_resource path="res://Arena/Crowd.png" type="Texture" id=2]
-[ext_resource path="res://Arena/Fence.png" type="Texture" id=3]
+[ext_resource path="res://Arena/BackgroundCrowd.png" type="Texture2D" id=1]
+[ext_resource path="res://Arena/Crowd.png" type="Texture2D" id=2]
+[ext_resource path="res://Arena/Fence.png" type="Texture2D" id=3]
 [ext_resource path="res://Arena/Spotlight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Arena/Crowd.gd" type="Script" id=5]
 
@@ -15,8 +15,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3 ),
-"transitions": PoolRealArray( 0.25, 3, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.3 ),
+"transitions": PackedFloat32Array( 0.25, 3, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 50 ), Vector2( 0, 0 ), Vector2( 0, 50 ) ]
 }
@@ -30,8 +30,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3 ),
-"transitions": PoolRealArray( 0.25, 3, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.3 ),
+"transitions": PackedFloat32Array( 0.25, 3, 1 ),
 "update": 0,
 "values": [ Vector2( 802, 50 ), Vector2( 802, 0 ), Vector2( 802, 50 ) ]
 }
@@ -43,7 +43,7 @@ tracks/0/keys = {
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.2, 1 )
 
-[node name="BackgroundCrowd" type="Sprite" parent="ParallaxBackground/Background"]
+[node name="BackgroundCrowd" type="Sprite2D" parent="ParallaxBackground/Background"]
 texture = ExtResource( 1 )
 centered = false
 
@@ -57,16 +57,16 @@ position = Vector2( 365.169, 671.299 )
 motion_scale = Vector2( 0.7, 1 )
 motion_mirroring = Vector2( 1604, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Crowd"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Crowd"]
 position = Vector2( 0, 50 )
 texture = ExtResource( 2 )
 centered = false
 script = ExtResource( 5 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Crowd/Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Crowd/Sprite2D"]
 anims/Beat = SubResource( 1 )
 
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/Crowd"]
+[node name="Sprite2" type="Sprite2D" parent="ParallaxBackground/Crowd"]
 position = Vector2( 802, 50 )
 texture = ExtResource( 2 )
 centered = false
@@ -79,11 +79,11 @@ anims/Beat = SubResource( 2 )
 motion_scale = Vector2( 0.9, 1 )
 motion_mirroring = Vector2( 1656, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Fence"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fence"]
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/Fence"]
+[node name="Sprite2" type="Sprite2D" parent="ParallaxBackground/Fence"]
 position = Vector2( 828, 0 )
 texture = ExtResource( 3 )
 centered = false

@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/JGJ_Try_This_Brighter_1.ogg-b8251f7a349eaa91be49e31dbe5b4abc.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ckxld1m51l7e8"
+path="res://.godot/imported/JGJ_Try_This_Brighter_1.ogg-b8251f7a349eaa91be49e31dbe5b4abc.oggvorbisstr"
 
 [deps]
 
 source_file="res://SFX/JGJ_Try_This_Brighter_1.ogg"
-dest_files=[ "res://.import/JGJ_Try_This_Brighter_1.ogg-b8251f7a349eaa91be49e31dbe5b4abc.oggstr" ]
+dest_files=["res://.godot/imported/JGJ_Try_This_Brighter_1.ogg-b8251f7a349eaa91be49e31dbe5b4abc.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

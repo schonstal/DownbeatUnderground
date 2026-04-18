@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/metalstep140.ogg-ce4ac2575e42dd3c87f7d9ce3336777a.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvk1i3xt0wfno"
+path="res://.godot/imported/metalstep140.ogg-ce4ac2575e42dd3c87f7d9ce3336777a.oggvorbisstr"
 
 [deps]
 
 source_file="res://Music/metalstep140.ogg"
-dest_files=[ "res://.import/metalstep140.ogg-ce4ac2575e42dd3c87f7d9ce3336777a.oggstr" ]
+dest_files=["res://.godot/imported/metalstep140.ogg-ce4ac2575e42dd3c87f7d9ce3336777a.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

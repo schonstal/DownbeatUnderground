@@ -1,9 +1,9 @@
-extends Sprite
+extends Sprite2D
 
-onready var animation = $AnimationPlayer
+@onready var animation = $AnimationPlayer
 
 func _ready():
-  EventBus.connect("enemy_hurt", self, "_on_enemy_hurt")
+  EventBus.connect("enemy_hurt", Callable(self, "_on_enemy_hurt"))
   
 func _on_enemy_hurt(_data:Dictionary):
   animation.stop()

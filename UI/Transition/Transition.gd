@@ -1,14 +1,14 @@
 extends CanvasLayer
 
-export var shake_duration = 0.25
-export var tween_in_duration = 0.25
-export var tween_out_duration = 0.25
+@export var shake_duration = 0.25
+@export var tween_in_duration = 0.25
+@export var tween_out_duration = 0.25
 
-onready var tween = $Tween
-onready var left = $Left
-onready var right = $Right
-onready var start_sound = $StartSound
-onready var end_sound = $EndSound
+@onready var tween = $Tween
+@onready var left = $Left
+@onready var right = $Right
+@onready var start_sound = $StartSound
+@onready var end_sound = $EndSound
 
 var width = 0
 var shake_time = 0
@@ -32,7 +32,7 @@ func _ready():
   left_origin = left.position.x
   right_origin = right.position.x
 
-  tween.connect("tween_completed", self, "_on_Tween_completed")
+  tween.connect("tween_completed", Callable(self, "_on_Tween_completed"))
 
 func _process(delta):
   t += delta
@@ -46,7 +46,7 @@ func _process(delta):
     t = 0
 
   if shake_time > 0:
-    offset.x = rand_range(-20, 20)
+    offset.x = randf_range(-20, 20)
     shake_time -= delta
   else:
     offset = Vector2.ZERO

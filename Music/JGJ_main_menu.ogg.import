@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/JGJ_main_menu.ogg-fbf5b7ff53df36350cca21df008ca93b.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dh86vfjminr1b"
+path="res://.godot/imported/JGJ_main_menu.ogg-fbf5b7ff53df36350cca21df008ca93b.oggvorbisstr"
 
 [deps]
 
 source_file="res://Music/JGJ_main_menu.ogg"
-dest_files=[ "res://.import/JGJ_main_menu.ogg-fbf5b7ff53df36350cca21df008ca93b.oggstr" ]
+dest_files=["res://.godot/imported/JGJ_main_menu.ogg-fbf5b7ff53df36350cca21df008ca93b.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

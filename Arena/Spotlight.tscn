@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Arena/Spotlight.png" type="Texture" id=1]
+[ext_resource path="res://Arena/Spotlight.png" type="Texture2D" id=1]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Rotate"
@@ -13,13 +13,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 2, 2 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 2, 2 ),
 "update": 0,
 "values": [ -18.0, 18.0 ]
 }
 
-[node name="Spotlight" type="Sprite"]
+[node name="Spotlight" type="Sprite2D"]
 position = Vector2( 1199.8, 765.304 )
 rotation = -0.314159
 texture = ExtResource( 1 )

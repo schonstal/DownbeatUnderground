@@ -3,26 +3,26 @@ extends Node2D
 var STATE_READY = "ready"
 var STATE_BUSY = "busy"
 
-onready var raised_arm = $Body/TellArm/Raised
-onready var horizontal_arm = $Body/TellArm/Horizontal
-onready var lowered_arm = $Body/TellArm/Lowered
-onready var body = $Body
+@onready var raised_arm = $Body/TellArm/Raised
+@onready var horizontal_arm = $Body/TellArm/Horizontal
+@onready var lowered_arm = $Body/TellArm/Lowered
+@onready var body = $Body
 
-onready var idle = $Body/Idle
-onready var tell = $Body/Tell
-onready var tell_arm = $Body/TellArm
-onready var block = $Body/Block
-onready var sweep = $Body/Sweep
-onready var slash = $Body/Slash
-onready var eye = $Body/Eye
-onready var death = $Body/Death
-onready var victory = $Body/Victory
+@onready var idle = $Body/Idle
+@onready var tell = $Body/Tell
+@onready var tell_arm = $Body/TellArm
+@onready var block = $Body/Block
+@onready var sweep = $Body/Sweep
+@onready var slash = $Body/Slash
+@onready var eye = $Body/Eye
+@onready var death = $Body/Death
+@onready var victory = $Body/Victory
 
-onready var big_tell = $Body/BigTell
-onready var big_tell_arms = $Body/BigTellArms
-onready var big_raised_arm = $Body/BigTellArms/Raised
-onready var big_horizontal_arm = $Body/BigTellArms/Horizontal
-onready var big_lowered_arm = $Body/BigTellArms/Lowered
+@onready var big_tell = $Body/BigTell
+@onready var big_tell_arms = $Body/BigTellArms
+@onready var big_raised_arm = $Body/BigTellArms/Raised
+@onready var big_horizontal_arm = $Body/BigTellArms/Horizontal
+@onready var big_lowered_arm = $Body/BigTellArms/Lowered
 
 var state = STATE_READY
 
@@ -35,16 +35,16 @@ var previous_action = "idle"
 
 signal tick
 
-onready var animation = $AnimationPlayer
+@onready var animation = $AnimationPlayer
 
 var max_health = 700.0
 var health = 700.0
 
 func _ready():
   sequences = load_sequences()
-  EventBus.connect("beat_hit", self, "_on_beat_hit")
-  EventBus.connect("enemy_damage", self, "_on_enemy_damage")
-  EventBus.connect("game_over", self, "_on_game_over")
+  EventBus.connect("beat_hit", Callable(self, "_on_beat_hit"))
+  EventBus.connect("enemy_damage", Callable(self, "_on_enemy_damage"))
+  EventBus.connect("game_over", Callable(self, "_on_game_over"))
   hide_body()
   victory.visible = true
   perform_sequences()
@@ -58,9 +58,9 @@ func load_sequences():
 
   # TODO: Figure out why this doesn't work when exported
   var sequences = {}
-  var dir = Directory.new()
+  var dir = DirAccess.new()
   dir.open("res://Enemies/Sequences")
-  dir.list_dir_begin()
+  dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
   var file = dir.get_next()
   while file != "":
@@ -74,7 +74,7 @@ func load_sequences():
 
 func _on_game_over(data:Dictionary):
   if data.victor == "enemy":
-    yield(get_tree().create_timer(0.5), "timeout")
+    await get_tree().create_timer(0.5).timeout
     hide_body()
     victory.visible = true
     animation.play("Victory")
@@ -106,7 +106,7 @@ func perform_sequences():
 
   while true:
     for action in sequence:
-      yield(self, "tick")
+      await self.tick
       previous_action = current_action
       current_action = action
       next_action = sequence.next_action

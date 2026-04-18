@@ -1,6 +1,6 @@
-extends Sprite
+extends Sprite2D
 
-onready var animation = $AnimationPlayer
+@onready var animation = $AnimationPlayer
 
 func flash():
   animation.play("Spark")

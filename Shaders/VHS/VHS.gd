@@ -7,4 +7,4 @@ func _ready():
 
 func _process(delta):
   time += delta
-  material.set_shader_param("time", time)
+  material.set_shader_parameter("time", time)

@@ -4,10 +4,10 @@ var can_restart = false
 
 func _ready():
   Transition.transition_in()
-  EventBus.connect("game_over", self, "_on_game_over")
+  EventBus.connect("game_over", Callable(self, "_on_game_over"))
   
 func _on_game_over(_data:Dictionary):
-  yield(get_tree().create_timer(5.0), "timeout")
+  await get_tree().create_timer(5.0).timeout
   $HUD/Label/AnimationPlayer.play("Flash")
   can_restart = true
   
@@ -18,5 +18,5 @@ func _process(delta):
     
 func restart():
   Transition.transition_out()
-  yield(get_tree().create_timer(1.0), "timeout")
-  get_tree().change_scene("res://Scenes/Gameplay.tscn")
+  await get_tree().create_timer(1.0).timeout
+  get_tree().change_scene_to_file("res://Scenes/Gameplay.tscn")

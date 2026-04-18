@@ -1,6 +1,7 @@
 extends "res://Enemies/AttackSequence.gd"
 
-func _init().(["tell", "left"]):
+func _init():
+	super(["tell", "left"])
   pass
 
 func get_next_sequence():

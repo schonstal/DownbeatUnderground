@@ -1,6 +1,6 @@
 var sequence = []
-var next_sequence setget ,get_next_sequence
-var next_action setget ,get_next_action
+var next_sequence : get = get_next_sequence
+var next_action : get = get_next_action
 var index = 0
 
 func _init(move_sequence:Array):

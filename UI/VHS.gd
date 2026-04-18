@@ -1,10 +1,10 @@
 extends BackBufferCopy
 
-onready var tween = $Tween
-onready var color_rect = $ColorRect
+@onready var tween = $Tween
+@onready var color_rect = $ColorRect
 
 func _ready():
-  EventBus.connect("player_damage", self, "_on_player_damage")
+  EventBus.connect("player_damage", Callable(self, "_on_player_damage"))
   color_rect.visible = false
 
 func _on_player_damage(_data:Dictionary):
@@ -19,7 +19,7 @@ func _on_player_damage(_data:Dictionary):
       Tween.TRANS_QUAD,
       Tween.EASE_OUT)
   tween.start()
-  yield(tween, "tween_completed")
+  await tween.tween_completed
   color_rect.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

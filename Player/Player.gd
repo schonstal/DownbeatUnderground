@@ -1,9 +1,9 @@
 extends Node2D
 
-onready var dash_animation = $DashAnimation
-onready var block_animation = $BlockAnimation
-onready var animation = $AnimationPlayer
-onready var sprite = $Sprite
+@onready var dash_animation = $DashAnimation
+@onready var block_animation = $BlockAnimation
+@onready var animation = $AnimationPlayer
+@onready var sprite = $Sprite2D
 
 var STATE_IDLE = "idle"
 var STATE_ATTACK = "attack"
@@ -20,9 +20,9 @@ var health = 100.0
 var blocking = false
 
 func _ready():
-  EventBus.connect("beat_hit", self, "_on_beat_hit")
-  EventBus.connect("player_damage", self, "_on_player_damage")
-  EventBus.connect("game_over", self, "_on_game_over")
+  EventBus.connect("beat_hit", Callable(self, "_on_beat_hit"))
+  EventBus.connect("player_damage", Callable(self, "_on_player_damage"))
+  EventBus.connect("game_over", Callable(self, "_on_game_over"))
 
 func idle():
   if lane == Game.LANE_LEFT:
@@ -126,7 +126,7 @@ func die():
 
 func _on_game_over(data:Dictionary):
   if data.victor == "player":
-    yield(get_tree().create_timer(5.0), "timeout")
+    await get_tree().create_timer(5.0).timeout
     animation.play("Victory")
 
 func _on_player_damage(data:Dictionary):

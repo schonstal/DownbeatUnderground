@@ -4,20 +4,20 @@ var sequences = {
   "countdown": [2, 2, 1, 1, 0, 0, 3, 3]
 }
 
-onready var titles = $Titles
-onready var caution_animation = $CautionAnimation
-onready var title_animation = $TitleAnimation
-onready var countdown_sound = $CountdownSound
+@onready var titles = $Titles
+@onready var caution_animation = $CautionAnimation
+@onready var title_animation = $TitleAnimation
+@onready var countdown_sound = $CountdownSound
 
-onready var game_over_sound = $GameOver
-onready var ko_sound = $KO
-onready var tko_sound = $TKO
-onready var you_lose_sound = $YouLose
-onready var you_win_sound = $YouWin
+@onready var game_over_sound = $GameOver
+@onready var ko_sound = $KO
+@onready var tko_sound = $TKO
+@onready var you_lose_sound = $YouLose
+@onready var you_win_sound = $YouWin
 
 func _ready():
-  EventBus.connect("beat", self, "_on_beat")
-  EventBus.connect("game_over", self, "_on_game_over")
+  EventBus.connect("beat", Callable(self, "_on_beat"))
+  EventBus.connect("game_over", Callable(self, "_on_game_over"))
   caution_animation.play("Appear")
 
 func play(sequence):
@@ -29,7 +29,7 @@ func play(sequence):
       title_animation.stop()
       title_animation.play("Appear")
     titles.frame = frame
-    yield(EventBus, "beat")
+    await EventBus.beat
   titles.frame = 8
   caution_animation.stop()
   caution_animation.play_backwards("Appear")
@@ -41,7 +41,7 @@ func _on_beat(data:Dictionary):
 
 func _on_game_over(data:Dictionary):
   game_over_sound.play()
-  yield(get_tree().create_timer(2.0), "timeout")
+  await get_tree().create_timer(2.0).timeout
 
   caution_animation.play("Appear")
 
@@ -55,7 +55,7 @@ func _on_game_over(data:Dictionary):
   title_animation.stop()
   title_animation.play("Appear")
 
-  yield(get_tree().create_timer(1.5), "timeout")
+  await get_tree().create_timer(1.5).timeout
 
   if data.victor == "player":
     titles.frame = 7
@@ -67,7 +67,7 @@ func _on_game_over(data:Dictionary):
   title_animation.stop()
   title_animation.play("Appear")
 
-  yield(get_tree().create_timer(1.5), "timeout")
+  await get_tree().create_timer(1.5).timeout
 
   titles.frame = 8
 

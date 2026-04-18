@@ -10,20 +10,20 @@ var average_error = 0.0
 var error_total = 0.0
 var presses = 0
 var song_start_time = 0.0
-var time_elapsed setget ,get_time_elapsed
-var song_length setget ,get_length
+var time_elapsed : get = get_time_elapsed
+var song_length : get = get_length
 
 var TIME_GREAT = 102000
 var TIME_EXCELLENT = 43000
 var TIME_FANTASTIC = 21500
 
-export(Resource) var stream = preload("res://Music/metalstep140.ogg")
+@export var stream: Resource = preload("res://Music/metalstep140.ogg")
 
 var audio_stream_player
 
 func _ready():
-  EventBus.connect("track_selected", self, "_on_track_selected")
-  EventBus.connect("game_over", self, "_on_game_over")
+  EventBus.connect("track_selected", Callable(self, "_on_track_selected"))
+  EventBus.connect("game_over", Callable(self, "_on_game_over"))
   audio_stream_player = AudioStreamPlayer.new()
 
 func play_track():
@@ -37,10 +37,10 @@ func play_track():
                    AudioServer.get_output_latency()
   beat = 0
 
-  yield(get_tree().create_timer(time_delay), "timeout")
+  await get_tree().create_timer(time_delay).timeout
   print(time_delay)
 
-  song_start_time = OS.get_ticks_usec()
+  song_start_time = Time.get_ticks_usec()
   audio_stream_player.play()
 
 func _process(_delta: float):
@@ -70,7 +70,7 @@ func _on_game_over(data:Dictionary):
 
 func get_time_elapsed():
   if audio_stream_player.playing:
-    return OS.get_ticks_usec() - song_start_time - 35008
+    return Time.get_ticks_usec() - song_start_time - 35008
   else:
     return 0
 

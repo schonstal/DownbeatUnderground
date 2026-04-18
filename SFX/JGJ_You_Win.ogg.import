@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/JGJ_You_Win.ogg-779dcdf165143e90b7748a26a9cc16e2.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxmkewnctb0q6"
+path="res://.godot/imported/JGJ_You_Win.ogg-779dcdf165143e90b7748a26a9cc16e2.oggvorbisstr"
 
 [deps]
 
 source_file="res://SFX/JGJ_You_Win.ogg"
-dest_files=[ "res://.import/JGJ_You_Win.ogg-779dcdf165143e90b7748a26a9cc16e2.oggstr" ]
+dest_files=["res://.godot/imported/JGJ_You_Win.ogg-779dcdf165143e90b7748a26a9cc16e2.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

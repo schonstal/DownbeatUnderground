@@ -4,15 +4,15 @@
 [ext_resource path="res://UI/EnemyHealth/EnemyHealth.gd" type="Script" id=2]
 [ext_resource path="res://UI/Caution.gd" type="Script" id=3]
 [ext_resource path="res://UI/VHS.gd" type="Script" id=4]
-[ext_resource path="res://UI/digital_7/Digital7Mono.tres" type="DynamicFont" id=5]
+[ext_resource path="res://UI/digital_7/Digital7Mono.tres" type="FontFile" id=5]
 [ext_resource path="res://SFX/JGJ_You_Shall_Faulter_brighter_1.ogg" type="AudioStream" id=6]
 [ext_resource path="res://SFX/JGJ_player_hurt_2.ogg" type="AudioStream" id=7]
 [ext_resource path="res://BeatSpawn.gd" type="Script" id=8]
 [ext_resource path="res://UI/CautionTape.gd" type="Script" id=9]
 [ext_resource path="res://pulse.gd" type="Script" id=10]
 [ext_resource path="res://PlayerHealth.gd" type="Script" id=11]
-[ext_resource path="res://Shaders/VHS/VHS.shader" type="Shader" id=12]
-[ext_resource path="res://UI/Caution/Caution.png" type="Texture" id=13]
+[ext_resource path="res://Shaders/VHS/VHS.gdshader" type="Shader" id=12]
+[ext_resource path="res://UI/Caution/Caution.png" type="Texture2D" id=13]
 [ext_resource path="res://SFX/JGJ_Enemy_Hurt_Grunt_4.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Music/JGJ_game_over_music.ogg" type="AudioStream" id=15]
 [ext_resource path="res://SFX/JGJ_Grunt_1.ogg" type="AudioStream" id=16]
@@ -21,7 +21,7 @@
 [ext_resource path="res://Scenes/Gameplay.gd" type="Script" id=19]
 [ext_resource path="res://SoundPlayer.gd" type="Script" id=20]
 [ext_resource path="res://SFX/JGJ_321_Fight_Half_time.ogg" type="AudioStream" id=21]
-[ext_resource path="res://UI/CountDown/Titles.png" type="Texture" id=22]
+[ext_resource path="res://UI/CountDown/Titles.png" type="Texture2D" id=22]
 [ext_resource path="res://SFX/JGJ_Enemy_Death.ogg" type="AudioStream" id=23]
 [ext_resource path="res://UI/TimeRemaining.gd" type="Script" id=24]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=25]
@@ -30,10 +30,10 @@
 [ext_resource path="res://SFX/ESM_Undead_Vocal_I_Am_Starting_To_Dislike_You.wav" type="AudioStream" id=28]
 [ext_resource path="res://SFX/ESM_Undead_Vocal_Jump_Big_Windup.wav" type="AudioStream" id=29]
 [ext_resource path="res://SFX/JGJ_Try_This_Brighter_1.ogg" type="AudioStream" id=30]
-[ext_resource path="res://UI/TempoDiamond.png" type="Texture" id=31]
-[ext_resource path="res://UI/TempoBar.png" type="Texture" id=32]
-[ext_resource path="res://UI/digital_7/Digital7Regular.tres" type="DynamicFont" id=33]
-[ext_resource path="res://UI/Caution/Z.png" type="Texture" id=34]
+[ext_resource path="res://UI/TempoDiamond.png" type="Texture2D" id=31]
+[ext_resource path="res://UI/TempoBar.png" type="Texture2D" id=32]
+[ext_resource path="res://UI/digital_7/Digital7Regular.tres" type="FontFile" id=33]
+[ext_resource path="res://UI/Caution/Z.png" type="Texture2D" id=34]
 [ext_resource path="res://SFX/JGJ_You_Lose_Voice.ogg" type="AudioStream" id=35]
 [ext_resource path="res://SFX/JGJ_Enemy_Roar_1.ogg" type="AudioStream" id=36]
 [ext_resource path="res://SFX/JGJ_KO_Voice.ogg" type="AudioStream" id=37]
@@ -65,8 +65,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
@@ -81,8 +81,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 2, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 2, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1e-05 ), Vector2( 1, 1 ) ]
 }
@@ -93,8 +93,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 640, 385.473 ), Vector2( 640, 309.231 ) ]
 }
@@ -105,8 +105,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 640, 411.064 ), Vector2( 640, 488.372 ) ]
 }
@@ -117,8 +117,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -133,8 +133,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.4 ),
-"transitions": PoolRealArray( 1, 2, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.4 ),
+"transitions": PackedFloat32Array( 1, 2, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
 }
@@ -145,8 +145,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 4.0 ]
 }
@@ -157,8 +157,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -169,8 +169,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = false
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 2, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 2, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -100 ), Vector2( 0, 0 ) ]
 }
@@ -181,8 +181,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = false
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 45.0, 0.0 ]
 }
@@ -198,8 +198,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
@@ -296,10 +296,10 @@ visible = false
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -320.0
-margin_top = -180.0
-margin_right = -320.0
-margin_bottom = -180.0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = -320.0
+offset_bottom = -180.0
 script = ExtResource( 27 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -309,7 +309,7 @@ __meta__ = {
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="TempoBar" type="Sprite" parent="HUD"]
+[node name="TempoBar" type="Sprite2D" parent="HUD"]
 position = Vector2( 639.307, 112.082 )
 texture = ExtResource( 32 )
 
@@ -328,12 +328,12 @@ position = Vector2( 454.833, -603.843 )
 scale = Vector2( -1, 1 )
 
 [node name="Label" type="Label" parent="HUD/PlayerHealth"]
-margin_left = 249.766
-margin_top = -529.061
-margin_right = 412.766
-margin_bottom = -500.061
-custom_fonts/font = ExtResource( 33 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_left = 249.766
+offset_top = -529.061
+offset_right = 412.766
+offset_bottom = -500.061
+theme_override_fonts/font = ExtResource( 33 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "TURBO BRAWLER"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -347,18 +347,18 @@ script = ExtResource( 2 )
 position = Vector2( -139.648, -83.477 )
 
 [node name="Label" type="Label" parent="HUD/EnemyHealth"]
-margin_left = -77.1025
-margin_top = -8.87237
-margin_right = 76.8975
-margin_bottom = 20.1276
-custom_fonts/font = ExtResource( 33 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_left = -77.1025
+offset_top = -8.87237
+offset_right = 76.8975
+offset_bottom = 20.1276
+theme_override_fonts/font = ExtResource( 33 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Maxx 3000"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pulse" type="Sprite" parent="HUD"]
+[node name="Pulse" type="Sprite2D" parent="HUD"]
 position = Vector2( 639.166, 112.887 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 31 )
@@ -370,12 +370,12 @@ anims/pulse = SubResource( 2 )
 [node name="HUD" type="Node2D" parent="HUD"]
 
 [node name="TimeRemaining" type="Label" parent="HUD"]
-margin_left = 566.736
-margin_top = 7.86943
-margin_right = 710.736
-margin_bottom = 52.8694
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 1, 0.996078, 0.592157, 1 )
+offset_left = 566.736
+offset_top = 7.86943
+offset_right = 710.736
+offset_bottom = 52.8694
+theme_override_fonts/font = ExtResource( 5 )
+theme_override_colors/font_color = Color( 1, 0.996078, 0.592157, 1 )
 text = "1:47"
 align = 1
 script = ExtResource( 24 )
@@ -390,7 +390,7 @@ script = ExtResource( 9 )
 [node name="Tape" type="Node2D" parent="HUD/CautionTape"]
 modulate = Color( 1, 1, 1, 0 )
 
-[node name="CautionTop" type="Sprite" parent="HUD/CautionTape/Tape"]
+[node name="CautionTop" type="Sprite2D" parent="HUD/CautionTape/Tape"]
 position = Vector2( 640, 385.473 )
 texture = ExtResource( 13 )
 region_enabled = true
@@ -398,7 +398,7 @@ region_rect = Rect2( 0, 0, 1280, 33 )
 script = ExtResource( 3 )
 scroll_rate = 100
 
-[node name="CautionBottom" type="Sprite" parent="HUD/CautionTape/Tape"]
+[node name="CautionBottom" type="Sprite2D" parent="HUD/CautionTape/Tape"]
 position = Vector2( 640, 411.064 )
 texture = ExtResource( 13 )
 region_enabled = true
@@ -406,7 +406,7 @@ region_rect = Rect2( 0, 0, 1280, 33 )
 script = ExtResource( 3 )
 scroll_rate = -100
 
-[node name="Z" type="Sprite" parent="HUD/CautionTape/Tape"]
+[node name="Z" type="Sprite2D" parent="HUD/CautionTape/Tape"]
 position = Vector2( 640, 397.321 )
 scale = Vector2( 1, 1e-05 )
 texture = ExtResource( 34 )
@@ -417,7 +417,7 @@ region_rect = Rect2( 0, 0, 1280, 159 )
 playback_speed = 2.0
 anims/Appear = SubResource( 3 )
 
-[node name="Titles" type="Sprite" parent="HUD/CautionTape"]
+[node name="Titles" type="Sprite2D" parent="HUD/CautionTape"]
 position = Vector2( 640, 402.098 )
 texture = ExtResource( 22 )
 vframes = 3
@@ -452,10 +452,10 @@ visible = false
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 200.806
-margin_bottom = 245.806
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 1, 0.996078, 0.592157, 1 )
+offset_top = 200.806
+offset_bottom = 245.806
+theme_override_fonts/font = ExtResource( 5 )
+theme_override_colors/font_color = Color( 1, 0.996078, 0.592157, 1 )
 text = "Press UP"
 align = 1
 __meta__ = {
