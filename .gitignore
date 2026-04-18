@@ -8,4 +8,5 @@
 *.wasm
 *.html
 *.js
+.godot
 ESM_*
