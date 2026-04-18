@@ -1,9 +1,9 @@
-extends "res://Enemies/AttackSequence.gd"
+class_name IdleSequence
+extends AttackSequence
 
 func _init():
 	super(["idle"])
-  pass
 
 func get_next_sequence():
-  var next = ["Idle", "Idle", "Idle", "Left", "Left", "Right", "Right", "Sweep", "Sweep", "Paradiddle"]
-  return next[randi() % next.size()]
+	var next = ["Idle", "Idle", "Idle", "Left", "Left", "Right", "Right", "Sweep", "Sweep", "Paradiddle"]
+	return next[randi() % next.size()]

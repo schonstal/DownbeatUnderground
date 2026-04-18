@@ -1,3 +1,5 @@
+class_name AttackSequence
+
 var sequence = []
 var next_sequence : get = get_next_sequence
 var next_action : get = get_next_action

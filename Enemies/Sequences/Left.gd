@@ -1,4 +1,5 @@
-extends "res://Enemies/AttackSequence.gd"
+class_name LeftSequence
+extends AttackSequence
 
 func _init():
 	super(["tell", "left"])
