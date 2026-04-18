@@ -4,7 +4,7 @@ extends BackBufferCopy
 @onready var color_rect = $ColorRect
 
 func _ready():
-  EventBus.connect("player_damage", Callable(self, "_on_player_damage"))
+  EventBus.player_damage.connect(_on_player_damage)
   color_rect.visible = false
 
 func _on_player_damage(_data:Dictionary):

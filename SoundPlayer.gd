@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-  EventBus.connect("play_sound", Callable(self, "_on_play_sound"))
+  EventBus.play_sound.connect(_on_play_sound)
 
 func _on_play_sound(data:Dictionary):
   var node = self.find_child(data.node_name)

@@ -5,8 +5,8 @@ var strength = 0.1
 
 func _ready():
   mouse_filter = MOUSE_FILTER_IGNORE
-  EventBus.connect("blur_chromatic", Callable(self, "_on_blur_chromatic"))
-  EventBus.connect("victory", Callable(self, "_on_victory"))
+  EventBus.blur_chromatic.connect(_on_blur_chromatic)
+  EventBus.victory.connect(_on_victory)
 
 func _process(delta):
   material.set_shader_parameter("amount", strength)

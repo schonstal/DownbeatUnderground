@@ -16,8 +16,8 @@ var sequences = {
 @onready var you_win_sound = $YouWin
 
 func _ready():
-  EventBus.connect("beat", Callable(self, "_on_beat"))
-  EventBus.connect("game_over", Callable(self, "_on_game_over"))
+  EventBus.beat.connect(_on_beat)
+  EventBus.game_over.connect(_on_game_over)
   caution_animation.play("Appear")
 
 func play(sequence):

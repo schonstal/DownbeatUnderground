@@ -38,9 +38,9 @@ var max_health = 700.0
 var health = 700.0
 
 func _ready():
-  EventBus.connect("beat_hit", Callable(self, "_on_beat_hit"))
-  EventBus.connect("enemy_damage", Callable(self, "_on_enemy_damage"))
-  EventBus.connect("game_over", Callable(self, "_on_game_over"))
+  EventBus.beat_hit.connect(_on_beat_hit)
+  EventBus.enemy_damage.connect(_on_enemy_damage)
+  EventBus.game_over.connect(_on_game_over)
   hide_body()
   victory.visible = true
   perform_sequences()

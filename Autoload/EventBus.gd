@@ -17,3 +17,7 @@ signal player_hurt(data)
 
 # Gameplay
 signal game_over(data)
+
+# Shaders
+signal blur_chromatic(data)
+signal victory(data)

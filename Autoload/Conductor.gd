@@ -22,8 +22,8 @@ var TIME_FANTASTIC = 21500
 var audio_stream_player
 
 func _ready():
-  EventBus.connect("track_selected", Callable(self, "_on_track_selected"))
-  EventBus.connect("game_over", Callable(self, "_on_game_over"))
+  EventBus.track_selected.connect(_on_track_selected)
+  EventBus.game_over.connect(_on_game_over)
   audio_stream_player = AudioStreamPlayer.new()
 
 func play_track():

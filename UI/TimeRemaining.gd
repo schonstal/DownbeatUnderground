@@ -3,7 +3,7 @@ extends Label
 var update = true
 
 func _ready():
-  EventBus.connect("game_over", Callable(self, "_on_game_over"))
+  EventBus.game_over.connect(_on_game_over)
 
 func _on_game_over(_data:Dictionary):
   text = "0:00"

@@ -4,7 +4,7 @@ var can_restart = false
 
 func _ready():
   Transition.transition_in()
-  EventBus.connect("game_over", Callable(self, "_on_game_over"))
+  EventBus.game_over.connect(_on_game_over)
   
 func _on_game_over(_data:Dictionary):
   await get_tree().create_timer(5.0).timeout

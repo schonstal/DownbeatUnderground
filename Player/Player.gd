@@ -20,9 +20,9 @@ var health = 100.0
 var blocking = false
 
 func _ready():
-  EventBus.connect("beat_hit", Callable(self, "_on_beat_hit"))
-  EventBus.connect("player_damage", Callable(self, "_on_player_damage"))
-  EventBus.connect("game_over", Callable(self, "_on_game_over"))
+  EventBus.beat_hit.connect(_on_beat_hit)
+  EventBus.player_damage.connect(_on_player_damage)
+  EventBus.game_over.connect(_on_game_over)
 
 func idle():
   if lane == Game.LANE_LEFT:

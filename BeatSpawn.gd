@@ -13,7 +13,7 @@ var next_beat = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-  EventBus.connect("beat", Callable(self, "_on_beat"))
+  EventBus.beat.connect(_on_beat)
   EventBus.emit_signal("track_selected", { "bpm": 80, "stream": stream })
 
 func _on_beat(data:Dictionary):
