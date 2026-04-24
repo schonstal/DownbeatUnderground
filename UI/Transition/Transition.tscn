@@ -24,8 +24,6 @@ texture = ExtResource( 3 )
 centered = false
 hframes = 2
 
-[node name="Tween" type="Tween" parent="."]
-
 [node name="StartSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 

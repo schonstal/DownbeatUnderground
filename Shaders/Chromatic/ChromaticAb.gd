@@ -1,37 +1,25 @@
 extends ColorRect
 
-@onready var blur_tween = $BlurTween
 var strength = 0.1
 
 func _ready():
-  mouse_filter = MOUSE_FILTER_IGNORE
-  EventBus.blur_chromatic.connect(_on_blur_chromatic)
-  EventBus.victory.connect(_on_victory)
+	mouse_filter = MOUSE_FILTER_IGNORE
+	EventBus.blur_chromatic.connect(_on_blur_chromatic)
+	EventBus.victory.connect(_on_victory)
 
 func _process(delta):
-  material.set_shader_parameter("amount", strength)
+	material.set_shader_parameter("amount", strength)
 
 func _on_blur_chromatic(size, duration):
-  blur_tween.interpolate_property(
-    self,
-    "strength",
-    size,
-    0.1,
-    duration,
-    Tween.TRANS_QUART,
-    Tween.EASE_OUT
-  )
-  blur_tween.start()
+	strength = size
+	create_tween() \
+		.tween_property(self, "strength", 0.1, duration) \
+		.set_trans(Tween.TransitionType.TRANS_QUART) \
+		.set_ease(Tween.EaseType.EASE_OUT)
 
 func _on_victory():
-  blur_tween.interpolate_property(
-    self,
-    "strength",
-    strength,
-    1.0,
-    2.0,
-    Tween.TRANS_QUART,
-    Tween.EASE_OUT,
-    3.0
-  )
-  blur_tween.start()
+	create_tween() \
+		.tween_property(self, "strength", 1.0, 2.0) \
+		.set_trans(Tween.TransitionType.TRANS_QUART) \
+		.set_ease(Tween.EaseType.EASE_OUT) \
+		.set_delay(3.0)

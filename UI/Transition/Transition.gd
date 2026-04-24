@@ -4,7 +4,6 @@ extends CanvasLayer
 @export var tween_in_duration = 0.25
 @export var tween_out_duration = 0.25
 
-@onready var tween = $Tween
 @onready var left = $Left
 @onready var right = $Right
 @onready var start_sound = $StartSound
@@ -32,8 +31,6 @@ func _ready():
 	left_origin = left.position.x
 	right_origin = right.position.x
 
-	tween.connect("tween_completed", Callable(self, "_on_Tween_completed"))
-
 func _process(delta):
 	t += delta
 	if t > min_change_time:
@@ -54,48 +51,31 @@ func _process(delta):
 func transition_out():
 	start_sound.play()
 
-	tween.interpolate_property(
-		left,
-		"position",
-		Vector2(left_origin, 0),
-		Vector2(vp_width / 2 - width, 0),
-		tween_in_duration,
-		Tween.TRANS_QUART,
-		Tween.EASE_IN)
+	var position_tween = create_tween()
+	position_tween.tween_property(left, "position", Vector2(vp_width / 2 - width, 0), tween_in_duration) \
+		.set_trans(Tween.TransitionType.TRANS_QUART) \
+		.set_ease(Tween.EaseType.EASE_IN)
+	position_tween.tween_property(right, "position", Vector2(vp_width / 2, 0), tween_in_duration) \
+		.set_trans(Tween.TransitionType.TRANS_QUART) \
+		.set_ease(Tween.EaseType.EASE_IN)
+	await position_tween.finished
 
-	tween.interpolate_property(
-		right,
-		"position",
-		Vector2(right_origin, 0),
-		Vector2(vp_width / 2, 0),
-		tween_in_duration,
-		Tween.TRANS_QUART,
-		Tween.EASE_IN)
+	emit_signal("transition_complete")
 
-	tween.start()
+	if right.position.x < 1000:
+		shake_time = shake_duration
+		end_sound.play()
 
 func transition_in():
-	tween.interpolate_property(
-		left,
-		"position",
-		Vector2(vp_width / 2 - width, 0),
-		Vector2(left_origin, 0),
-		tween_out_duration,
-		Tween.TRANS_QUART,
-		Tween.EASE_IN)
+	var position_tween = create_tween()
+	position_tween.tween_property(left, "position", Vector2(left_origin, 0), tween_out_duration) \
+		.set_trans(Tween.TransitionType.TRANS_QUART) \
+		.set_ease(Tween.EaseType.EASE_IN)
+	position_tween.tween_property(right, "position", Vector2(right_origin, 0), tween_out_duration) \
+		.set_trans(Tween.TransitionType.TRANS_QUART) \
+		.set_ease(Tween.EaseType.EASE_IN)
+	await position_tween.finished
 
-	tween.interpolate_property(
-		right,
-		"position",
-		Vector2(vp_width / 2, 0),
-		Vector2(right_origin, 0),
-		tween_out_duration,
-		Tween.TRANS_QUART,
-		Tween.EASE_IN)
-
-	tween.start()
-
-func _on_Tween_completed(_object, _key):
 	emit_signal("transition_complete")
 
 	if right.position.x < 1000:
