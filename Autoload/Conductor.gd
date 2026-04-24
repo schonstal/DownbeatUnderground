@@ -56,16 +56,16 @@ func _process(_delta: float):
     beat = next_beat
     EventBus.emit_signal("beat", {
       "beat": beat,
-      "measure": int(beat / beats_per_bar)
+      "measure": int(beat / float(beats_per_bar))
     })
 
-func _on_track_selected(track:Dictionary):
+func _on_track_selected(_track:Dictionary):
   #print(track.stream)
   #audio_stream_player.stream = load(track.stream)
   #bpm = track.bpm
   play_track()
 
-func _on_game_over(data:Dictionary):
+func _on_game_over(_data:Dictionary):
   audio_stream_player.stop()
 
 func get_time_elapsed():

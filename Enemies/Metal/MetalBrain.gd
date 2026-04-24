@@ -56,7 +56,7 @@ func _on_game_over(data:Dictionary):
 		death.visible = true
 		animation.play("Death")
 
-func _on_beat_hit(data:Dictionary):
+func _on_beat_hit(_data:Dictionary):
 	emit_signal("tick")
 
 func _on_enemy_damage(data:Dictionary):

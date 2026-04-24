@@ -1,465 +1,463 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene format=3 uid="uid://ci3lhw0nogqk8"]
 
-[ext_resource path="res://SFX/JGJ_Grunt_2.ogg" type="AudioStream" id=1]
-[ext_resource path="res://UI/EnemyHealth/EnemyHealth.gd" type="Script" id=2]
-[ext_resource path="res://UI/Caution.gd" type="Script" id=3]
-[ext_resource path="res://UI/VHS.gd" type="Script" id=4]
-[ext_resource path="res://UI/digital_7/Digital7Mono.tres" type="FontFile" id=5]
-[ext_resource path="res://SFX/JGJ_You_Shall_Faulter_brighter_1.ogg" type="AudioStream" id=6]
-[ext_resource path="res://SFX/JGJ_player_hurt_2.ogg" type="AudioStream" id=7]
-[ext_resource path="res://BeatSpawn.gd" type="Script" id=8]
-[ext_resource path="res://UI/CautionTape.gd" type="Script" id=9]
-[ext_resource path="res://pulse.gd" type="Script" id=10]
-[ext_resource path="res://PlayerHealth.gd" type="Script" id=11]
-[ext_resource path="res://Shaders/VHS/VHS.gdshader" type="Shader" id=12]
-[ext_resource path="res://UI/Caution/Caution.png" type="Texture2D" id=13]
-[ext_resource path="res://SFX/JGJ_Enemy_Hurt_Grunt_4.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Music/JGJ_game_over_music.ogg" type="AudioStream" id=15]
-[ext_resource path="res://SFX/JGJ_Grunt_1.ogg" type="AudioStream" id=16]
-[ext_resource path="res://SFX/JGJ_Your_Fate_Is_Sealed.ogg" type="AudioStream" id=17]
-[ext_resource path="res://SFX/JGJ_TKO.ogg" type="AudioStream" id=18]
-[ext_resource path="res://Scenes/Gameplay.gd" type="Script" id=19]
-[ext_resource path="res://SoundPlayer.gd" type="Script" id=20]
-[ext_resource path="res://SFX/JGJ_321_Fight_Half_time.ogg" type="AudioStream" id=21]
-[ext_resource path="res://UI/CountDown/Titles.png" type="Texture2D" id=22]
-[ext_resource path="res://SFX/JGJ_Enemy_Death.ogg" type="AudioStream" id=23]
-[ext_resource path="res://UI/TimeRemaining.gd" type="Script" id=24]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=25]
-[ext_resource path="res://UI/HealthBar/HealthBar.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Shaders/VHS/VHS.gd" type="Script" id=27]
-[ext_resource path="res://SFX/ESM_Undead_Vocal_I_Am_Starting_To_Dislike_You.wav" type="AudioStream" id=28]
-[ext_resource path="res://SFX/ESM_Undead_Vocal_Jump_Big_Windup.wav" type="AudioStream" id=29]
-[ext_resource path="res://SFX/JGJ_Try_This_Brighter_1.ogg" type="AudioStream" id=30]
-[ext_resource path="res://UI/TempoDiamond.png" type="Texture2D" id=31]
-[ext_resource path="res://UI/TempoBar.png" type="Texture2D" id=32]
-[ext_resource path="res://UI/digital_7/Digital7Regular.tres" type="FontFile" id=33]
-[ext_resource path="res://UI/Caution/Z.png" type="Texture2D" id=34]
-[ext_resource path="res://SFX/JGJ_You_Lose_Voice.ogg" type="AudioStream" id=35]
-[ext_resource path="res://SFX/JGJ_Enemy_Roar_1.ogg" type="AudioStream" id=36]
-[ext_resource path="res://SFX/JGJ_KO_Voice.ogg" type="AudioStream" id=37]
-[ext_resource path="res://SFX/JGJ_Enemy_Horizontal_Swipe.ogg" type="AudioStream" id=38]
-[ext_resource path="res://SFX/JGJ_Enemy_Hurt_Grunt_1.ogg" type="AudioStream" id=39]
-[ext_resource path="res://SFX/JGJ_Enemy_Hurt_Grunt_3.ogg" type="AudioStream" id=40]
-[ext_resource path="res://SFX/JGJ_Grunt_3.ogg" type="AudioStream" id=41]
-[ext_resource path="res://SFX/JGJ_Grunt_4.ogg" type="AudioStream" id=42]
-[ext_resource path="res://SFX/JGJ_Enemy_Vertical_Swipe.ogg" type="AudioStream" id=43]
-[ext_resource path="res://SFX/JGJ_Enemy_Hurt_Grunt_2.ogg" type="AudioStream" id=44]
-[ext_resource path="res://SFX/JGJ_player_hurt_1.ogg" type="AudioStream" id=45]
-[ext_resource path="res://SFX/JGJ_Player_Death.ogg" type="AudioStream" id=46]
-[ext_resource path="res://SFX/JGJ_You_Win.ogg" type="AudioStream" id=47]
-[ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=48]
-[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=49]
+[ext_resource type="AudioStream" uid="uid://kdm5uyv50r0n" path="res://SFX/JGJ_Grunt_2.ogg" id="1"]
+[ext_resource type="Script" uid="uid://dang4r61gmcqv" path="res://UI/EnemyHealth/EnemyHealth.gd" id="2"]
+[ext_resource type="Script" uid="uid://0o2wf7np6uly" path="res://UI/Caution.gd" id="3"]
+[ext_resource type="Script" uid="uid://biaw20hrn8xik" path="res://UI/VHS.gd" id="4"]
+[ext_resource type="FontFile" path="res://UI/digital_7/Digital7Mono.tres" id="5"]
+[ext_resource type="AudioStream" uid="uid://dr6il31r0j4b" path="res://SFX/JGJ_You_Shall_Faulter_brighter_1.ogg" id="6"]
+[ext_resource type="AudioStream" uid="uid://drmq2sukor7un" path="res://SFX/JGJ_player_hurt_2.ogg" id="7"]
+[ext_resource type="Script" uid="uid://dvi0fdwsoht34" path="res://BeatSpawn.gd" id="8"]
+[ext_resource type="Script" uid="uid://daa4n2oyj44d0" path="res://UI/CautionTape.gd" id="9"]
+[ext_resource type="Script" uid="uid://bmcd0ciqbmawr" path="res://pulse.gd" id="10"]
+[ext_resource type="Script" uid="uid://cdcpnksgm18ld" path="res://PlayerHealth.gd" id="11"]
+[ext_resource type="Shader" uid="uid://bm3ai17uiyjrw" path="res://Shaders/VHS/VHS.gdshader" id="12"]
+[ext_resource type="Texture2D" uid="uid://tsnsygmhmjpc" path="res://UI/Caution/Caution.png" id="13"]
+[ext_resource type="AudioStream" uid="uid://cmjr43sipqjsh" path="res://SFX/JGJ_Enemy_Hurt_Grunt_4.ogg" id="14"]
+[ext_resource type="AudioStream" uid="uid://dsqcfmf6acagf" path="res://Music/JGJ_game_over_music.ogg" id="15"]
+[ext_resource type="AudioStream" uid="uid://cw08r2ddoht4h" path="res://SFX/JGJ_Grunt_1.ogg" id="16"]
+[ext_resource type="AudioStream" uid="uid://bl00jirm8b8jr" path="res://SFX/JGJ_Your_Fate_Is_Sealed.ogg" id="17"]
+[ext_resource type="AudioStream" uid="uid://bl22foo1f5xyb" path="res://SFX/JGJ_TKO.ogg" id="18"]
+[ext_resource type="Script" uid="uid://bi0f5jj02tym3" path="res://Scenes/Gameplay.gd" id="19"]
+[ext_resource type="Script" uid="uid://vbx33jep5dvi" path="res://SoundPlayer.gd" id="20"]
+[ext_resource type="AudioStream" uid="uid://bmv00adafyiuu" path="res://SFX/JGJ_321_Fight_Half_time.ogg" id="21"]
+[ext_resource type="Texture2D" uid="uid://dryr116ihflb1" path="res://UI/CountDown/Titles.png" id="22"]
+[ext_resource type="AudioStream" uid="uid://dcam4pp0qigy0" path="res://SFX/JGJ_Enemy_Death.ogg" id="23"]
+[ext_resource type="Script" uid="uid://cmfbxr0lvu8jf" path="res://UI/TimeRemaining.gd" id="24"]
+[ext_resource type="PackedScene" path="res://Player/Player.tscn" id="25"]
+[ext_resource type="PackedScene" path="res://UI/HealthBar/HealthBar.tscn" id="26"]
+[ext_resource type="Script" uid="uid://xevnl0no0m3r" path="res://Shaders/VHS/VHS.gd" id="27"]
+[ext_resource type="AudioStream" uid="uid://ckxld1m51l7e8" path="res://SFX/JGJ_Try_This_Brighter_1.ogg" id="30"]
+[ext_resource type="Texture2D" uid="uid://beyh1l06eixig" path="res://UI/TempoDiamond.png" id="31"]
+[ext_resource type="Texture2D" uid="uid://daorcsxew4br0" path="res://UI/TempoBar.png" id="32"]
+[ext_resource type="FontFile" path="res://UI/digital_7/Digital7Regular.tres" id="33"]
+[ext_resource type="Texture2D" uid="uid://bmth8b0hnpd44" path="res://UI/Caution/Z.png" id="34"]
+[ext_resource type="AudioStream" uid="uid://83u380yut501" path="res://SFX/JGJ_You_Lose_Voice.ogg" id="35"]
+[ext_resource type="AudioStream" uid="uid://dfmdmxryooa75" path="res://SFX/JGJ_Enemy_Roar_1.ogg" id="36"]
+[ext_resource type="AudioStream" uid="uid://p7ssn7y27p58" path="res://SFX/JGJ_KO_Voice.ogg" id="37"]
+[ext_resource type="AudioStream" uid="uid://c1kbialoirg5o" path="res://SFX/JGJ_Enemy_Horizontal_Swipe.ogg" id="38"]
+[ext_resource type="AudioStream" uid="uid://cn4ruupsq705h" path="res://SFX/JGJ_Enemy_Hurt_Grunt_1.ogg" id="39"]
+[ext_resource type="AudioStream" uid="uid://dhq71qkspmj03" path="res://SFX/JGJ_Enemy_Hurt_Grunt_3.ogg" id="40"]
+[ext_resource type="AudioStream" uid="uid://bt0fba2tsb3l3" path="res://SFX/JGJ_Grunt_3.ogg" id="41"]
+[ext_resource type="AudioStream" uid="uid://c8tspx15b4xtg" path="res://SFX/JGJ_Grunt_4.ogg" id="42"]
+[ext_resource type="AudioStream" uid="uid://d15262wo4xe76" path="res://SFX/JGJ_Enemy_Vertical_Swipe.ogg" id="43"]
+[ext_resource type="AudioStream" uid="uid://8eklfn6rr66k" path="res://SFX/JGJ_Enemy_Hurt_Grunt_2.ogg" id="44"]
+[ext_resource type="AudioStream" uid="uid://dwecswwj6g3ue" path="res://SFX/JGJ_player_hurt_1.ogg" id="45"]
+[ext_resource type="AudioStream" uid="uid://tb2omlhjdmtb" path="res://SFX/JGJ_Player_Death.ogg" id="46"]
+[ext_resource type="AudioStream" uid="uid://dxmkewnctb0q6" path="res://SFX/JGJ_You_Win.ogg" id="47"]
+[ext_resource type="PackedScene" path="res://Arena/Arena.tscn" id="48"]
+[ext_resource type="PackedScene" uid="uid://icu3idb7s2oi" path="res://Enemies/Enemy.tscn" id="49"]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 12 )
-shader_param/time = 0.0
-shader_param/strength = 1.0
-shader_param/apply_noise = false
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("12")
+shader_parameter/time = 0.0
+shader_parameter/strength = 1.0
+shader_parameter/apply_noise = false
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwbnj"]
+_data = {
+&"pulse": SubResource("2")
+}
+
+[sub_resource type="Animation" id="3"]
 resource_name = "Appear"
 length = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Tape/Z:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 2, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [ Vector2( 1, 1e-05 ), Vector2( 1, 1 ) ]
+"values": [Vector2(1, 1e-05), Vector2(1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Tape/CautionTop:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 640, 385.473 ), Vector2( 640, 309.231 ) ]
+"values": [Vector2(640, 385.473), Vector2(640, 309.231)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Tape/CautionBottom:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 640, 411.064 ), Vector2( 640, 488.372 ) ]
+"values": [Vector2(640, 411.064), Vector2(640, 488.372)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("Tape:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7j5hj"]
+_data = {
+&"Appear": SubResource("3")
+}
+
+[sub_resource type="Animation" id="4"]
 resource_name = "Appear"
 length = 0.4
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Titles:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.4 ),
-"transitions": PackedFloat32Array( 1, 2, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 2, 1),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("TitleAnimation:playback_speed")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 4.0 ]
+"values": [4.0]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Titles:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
 tracks/3/path = NodePath("Titles:offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = false
 tracks/3/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 2, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [ Vector2( 0, -100 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, -100), Vector2(0, 0)]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
 tracks/4/path = NodePath("Titles:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = false
 tracks/4/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ 45.0, 0.0 ]
+"values": [45.0, 0.0]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u10x4"]
+_data = {
+&"Appear": SubResource("4")
+}
+
+[sub_resource type="Animation" id="5"]
 resource_name = "Flash"
 length = 0.4
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ true, false ]
+"values": [true, false]
 }
 
-[node name="Gameplay" type="Node2D"]
-script = ExtResource( 19 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1dl0"]
+_data = {
+&"Flash": SubResource("5")
+}
 
-[node name="Arena" parent="." instance=ExtResource( 48 )]
-position = Vector2( 2.00778, -1.09399 )
+[node name="Gameplay" type="Node2D" unique_id=535121907]
+script = ExtResource("19")
 
-[node name="Enemy" parent="." instance=ExtResource( 49 )]
-position = Vector2( 1.5603, 0.780151 )
+[node name="Arena" parent="." unique_id=1287147591 instance=ExtResource("48")]
+position = Vector2(2.00778, -1.09399)
 
-[node name="Player" parent="." instance=ExtResource( 25 )]
+[node name="Enemy" parent="." unique_id=1789678960 instance=ExtResource("49")]
+position = Vector2(1.5603, 0.780151)
 
-[node name="SoundPlayer" type="Node2D" parent="."]
-script = ExtResource( 20 )
+[node name="Player" parent="." unique_id=800846931 instance=ExtResource("25")]
 
-[node name="Dislike" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 28 )
+[node name="SoundPlayer" type="Node2D" parent="." unique_id=1453163008]
+script = ExtResource("20")
 
-[node name="ParadiddleRoar" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 36 )
+[node name="Dislike" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=506359487]
+stream = ExtResource("16")
 
-[node name="RoarTwo" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 36 )
+[node name="ParadiddleRoar" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1222934891]
+stream = ExtResource("36")
 
-[node name="EnemyDeath" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 23 )
+[node name="RoarTwo" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1246727643]
+stream = ExtResource("36")
 
-[node name="EnemyHurt1" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 39 )
+[node name="EnemyDeath" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1907565597]
+stream = ExtResource("23")
 
-[node name="EnemyHurt2" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 44 )
+[node name="EnemyHurt1" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1228417535]
+stream = ExtResource("39")
 
-[node name="EnemyHurt3" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 40 )
+[node name="EnemyHurt2" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1922650223]
+stream = ExtResource("44")
 
-[node name="EnemyHurt4" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 14 )
+[node name="EnemyHurt3" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1091177681]
+stream = ExtResource("40")
 
-[node name="EnemyGrunt1" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 16 )
+[node name="EnemyHurt4" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1716627381]
+stream = ExtResource("14")
 
-[node name="EnemyGrunt2" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 1 )
+[node name="EnemyGrunt1" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=2073815496]
+stream = ExtResource("16")
 
-[node name="EnemyGrunt3" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 41 )
+[node name="EnemyGrunt2" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=758962711]
+stream = ExtResource("1")
 
-[node name="EnemyGrunt4" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 42 )
+[node name="EnemyGrunt3" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1714310046]
+stream = ExtResource("41")
 
-[node name="PlayerDeath" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 46 )
+[node name="EnemyGrunt4" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1684407630]
+stream = ExtResource("42")
 
-[node name="HorizontalSwipe" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 38 )
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1307621562]
+stream = ExtResource("46")
 
-[node name="VerticalSwipe" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 43 )
+[node name="HorizontalSwipe" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=461302819]
+stream = ExtResource("38")
 
-[node name="Windup" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 29 )
+[node name="VerticalSwipe" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=2003252231]
+stream = ExtResource("43")
 
-[node name="TryThis" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 30 )
+[node name="Windup" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=899703947]
+stream = ExtResource("1")
 
-[node name="Falter" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 6 )
+[node name="TryThis" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=276386531]
+stream = ExtResource("30")
 
-[node name="Sealed" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 17 )
+[node name="Falter" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1425756800]
+stream = ExtResource("6")
 
-[node name="PlayerHurt1" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 45 )
+[node name="Sealed" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1231703759]
+stream = ExtResource("17")
 
-[node name="PlayerHurt2" type="AudioStreamPlayer" parent="SoundPlayer"]
-stream = ExtResource( 7 )
+[node name="PlayerHurt1" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=712876413]
+stream = ExtResource("45")
 
-[node name="VHS" type="BackBufferCopy" parent="."]
-position = Vector2( 0.780151, -0.780151 )
+[node name="PlayerHurt2" type="AudioStreamPlayer" parent="SoundPlayer" unique_id=1743244353]
+stream = ExtResource("7")
+
+[node name="VHS" type="BackBufferCopy" parent="." unique_id=1716472820]
 z_index = 100
+position = Vector2(0.780151, -0.780151)
 copy_mode = 2
-rect = Rect2( -320, -180, 1920, 1080 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
+rect = Rect2(-320, -180, 1920, 1080)
+script = ExtResource("4")
 
-[node name="ColorRect" type="ColorRect" parent="VHS"]
+[node name="ColorRect" type="ColorRect" parent="VHS" unique_id=1164254138]
 visible = false
-material = SubResource( 1 )
+material = SubResource("1")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -320.0
 offset_top = -180.0
 offset_right = -320.0
 offset_bottom = -180.0
-script = ExtResource( 27 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("27")
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1176803859]
 
-[node name="TempoBar" type="Sprite2D" parent="HUD"]
-position = Vector2( 639.307, 112.082 )
-texture = ExtResource( 32 )
+[node name="TempoBar" type="Sprite2D" parent="HUD" unique_id=1784226508]
+position = Vector2(639.307, 112.082)
+texture = ExtResource("32")
 
-[node name="BeatSpawn" type="Node" parent="HUD"]
-script = ExtResource( 8 )
+[node name="BeatSpawn" type="Node" parent="HUD" unique_id=1988812346]
+script = ExtResource("8")
 
-[node name="TempoSpawn" type="Node2D" parent="HUD/BeatSpawn"]
-position = Vector2( 270.715, 114.718 )
+[node name="TempoSpawn" type="Node2D" parent="HUD/BeatSpawn" unique_id=1286304263]
+position = Vector2(270.715, 114.718)
 
-[node name="PlayerHealth" type="Node2D" parent="HUD"]
-position = Vector2( 823.072, 612.705 )
-script = ExtResource( 11 )
+[node name="PlayerHealth" type="Node2D" parent="HUD" unique_id=323517714]
+position = Vector2(823.072, 612.705)
+script = ExtResource("11")
 
-[node name="HealthBar" parent="HUD/PlayerHealth" instance=ExtResource( 26 )]
-position = Vector2( 454.833, -603.843 )
-scale = Vector2( -1, 1 )
+[node name="HealthBar" parent="HUD/PlayerHealth" unique_id=523327853 instance=ExtResource("26")]
+position = Vector2(454.833, -603.843)
+scale = Vector2(-1, 1)
 
-[node name="Label" type="Label" parent="HUD/PlayerHealth"]
+[node name="Label" type="Label" parent="HUD/PlayerHealth" unique_id=36100547]
 offset_left = 249.766
 offset_top = -529.061
 offset_right = 412.766
 offset_bottom = -500.061
-theme_override_fonts/font = ExtResource( 33 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("33")
 text = "TURBO BRAWLER"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="EnemyHealth" type="Node2D" parent="HUD"]
-position = Vector2( 140.665, 94.9475 )
-script = ExtResource( 2 )
+[node name="EnemyHealth" type="Node2D" parent="HUD" unique_id=1377629272]
+position = Vector2(140.665, 94.9475)
+script = ExtResource("2")
 
-[node name="HealthBar" parent="HUD/EnemyHealth" instance=ExtResource( 26 )]
-position = Vector2( -139.648, -83.477 )
+[node name="HealthBar" parent="HUD/EnemyHealth" unique_id=1176137584 instance=ExtResource("26")]
+position = Vector2(-139.648, -83.477)
 
-[node name="Label" type="Label" parent="HUD/EnemyHealth"]
+[node name="Label" type="Label" parent="HUD/EnemyHealth" unique_id=1267168115]
 offset_left = -77.1025
 offset_top = -8.87237
 offset_right = 76.8975
 offset_bottom = 20.1276
-theme_override_fonts/font = ExtResource( 33 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("33")
 text = "Maxx 3000"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Pulse" type="Sprite2D" parent="HUD"]
-position = Vector2( 639.166, 112.887 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 31 )
-script = ExtResource( 10 )
+[node name="Pulse" type="Sprite2D" parent="HUD" unique_id=178581086]
+position = Vector2(639.166, 112.887)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("31")
+script = ExtResource("10")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Pulse"]
-anims/pulse = SubResource( 2 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Pulse" unique_id=1187858411]
+libraries/ = SubResource("AnimationLibrary_kwbnj")
 
-[node name="HUD" type="Node2D" parent="HUD"]
+[node name="HUD" type="Node2D" parent="HUD" unique_id=866860515]
 
-[node name="TimeRemaining" type="Label" parent="HUD"]
+[node name="TimeRemaining" type="Label" parent="HUD" unique_id=791135634]
 offset_left = 566.736
 offset_top = 7.86943
 offset_right = 710.736
 offset_bottom = 52.8694
-theme_override_fonts/font = ExtResource( 5 )
-theme_override_colors/font_color = Color( 1, 0.996078, 0.592157, 1 )
+theme_override_colors/font_color = Color(1, 0.996078, 0.592157, 1)
+theme_override_fonts/font = ExtResource("5")
 text = "1:47"
-align = 1
-script = ExtResource( 24 )
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
+horizontal_alignment = 1
+script = ExtResource("24")
 
-[node name="CautionTape" type="Node2D" parent="HUD"]
-script = ExtResource( 9 )
+[node name="CautionTape" type="Node2D" parent="HUD" unique_id=392000206]
+script = ExtResource("9")
 
-[node name="Tape" type="Node2D" parent="HUD/CautionTape"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Tape" type="Node2D" parent="HUD/CautionTape" unique_id=1058715001]
+modulate = Color(1, 1, 1, 0)
 
-[node name="CautionTop" type="Sprite2D" parent="HUD/CautionTape/Tape"]
-position = Vector2( 640, 385.473 )
-texture = ExtResource( 13 )
+[node name="CautionTop" type="Sprite2D" parent="HUD/CautionTape/Tape" unique_id=1425734402]
+position = Vector2(640, 385.473)
+texture = ExtResource("13")
 region_enabled = true
-region_rect = Rect2( 0, 0, 1280, 33 )
-script = ExtResource( 3 )
+region_rect = Rect2(0, 0, 1280, 33)
+script = ExtResource("3")
 scroll_rate = 100
 
-[node name="CautionBottom" type="Sprite2D" parent="HUD/CautionTape/Tape"]
-position = Vector2( 640, 411.064 )
-texture = ExtResource( 13 )
+[node name="CautionBottom" type="Sprite2D" parent="HUD/CautionTape/Tape" unique_id=1039253594]
+position = Vector2(640, 411.064)
+texture = ExtResource("13")
 region_enabled = true
-region_rect = Rect2( 0, 0, 1280, 33 )
-script = ExtResource( 3 )
+region_rect = Rect2(0, 0, 1280, 33)
+script = ExtResource("3")
 scroll_rate = -100
 
-[node name="Z" type="Sprite2D" parent="HUD/CautionTape/Tape"]
-position = Vector2( 640, 397.321 )
-scale = Vector2( 1, 1e-05 )
-texture = ExtResource( 34 )
+[node name="Z" type="Sprite2D" parent="HUD/CautionTape/Tape" unique_id=569707625]
+position = Vector2(640, 397.321)
+scale = Vector2(1, 1e-05)
+texture = ExtResource("34")
 region_enabled = true
-region_rect = Rect2( 0, 0, 1280, 159 )
+region_rect = Rect2(0, 0, 1280, 159)
 
-[node name="CautionAnimation" type="AnimationPlayer" parent="HUD/CautionTape"]
-playback_speed = 2.0
-anims/Appear = SubResource( 3 )
+[node name="CautionAnimation" type="AnimationPlayer" parent="HUD/CautionTape" unique_id=1262398334]
+libraries/ = SubResource("AnimationLibrary_7j5hj")
 
-[node name="Titles" type="Sprite2D" parent="HUD/CautionTape"]
-position = Vector2( 640, 402.098 )
-texture = ExtResource( 22 )
-vframes = 3
+[node name="Titles" type="Sprite2D" parent="HUD/CautionTape" unique_id=1473738081]
+position = Vector2(640, 402.098)
+texture = ExtResource("22")
 hframes = 3
+vframes = 3
 frame = 8
 
-[node name="TitleAnimation" type="AnimationPlayer" parent="HUD/CautionTape"]
-playback_speed = 4.0
-anims/Appear = SubResource( 4 )
+[node name="TitleAnimation" type="AnimationPlayer" parent="HUD/CautionTape" unique_id=107711159]
+libraries/ = SubResource("AnimationLibrary_u10x4")
 
-[node name="CountdownSound" type="AudioStreamPlayer" parent="HUD/CautionTape"]
-stream = ExtResource( 21 )
+[node name="CountdownSound" type="AudioStreamPlayer" parent="HUD/CautionTape" unique_id=1642556423]
+stream = ExtResource("21")
 
-[node name="GameOver" type="AudioStreamPlayer" parent="HUD/CautionTape"]
-stream = ExtResource( 15 )
+[node name="GameOver" type="AudioStreamPlayer" parent="HUD/CautionTape" unique_id=869908415]
+stream = ExtResource("15")
 volume_db = -7.0
 
-[node name="YouLose" type="AudioStreamPlayer" parent="HUD/CautionTape"]
-stream = ExtResource( 35 )
+[node name="YouLose" type="AudioStreamPlayer" parent="HUD/CautionTape" unique_id=820851268]
+stream = ExtResource("35")
 
-[node name="YouWin" type="AudioStreamPlayer" parent="HUD/CautionTape"]
-stream = ExtResource( 47 )
+[node name="YouWin" type="AudioStreamPlayer" parent="HUD/CautionTape" unique_id=1177955092]
+stream = ExtResource("47")
 
-[node name="KO" type="AudioStreamPlayer" parent="HUD/CautionTape"]
-stream = ExtResource( 37 )
+[node name="KO" type="AudioStreamPlayer" parent="HUD/CautionTape" unique_id=1027491729]
+stream = ExtResource("37")
 
-[node name="TKO" type="AudioStreamPlayer" parent="HUD/CautionTape"]
-stream = ExtResource( 18 )
+[node name="TKO" type="AudioStreamPlayer" parent="HUD/CautionTape" unique_id=404371571]
+stream = ExtResource("18")
 
-[node name="Label" type="Label" parent="HUD"]
+[node name="Label" type="Label" parent="HUD" unique_id=1033441541]
 visible = false
+anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = 200.806
 offset_bottom = 245.806
-theme_override_fonts/font = ExtResource( 5 )
-theme_override_colors/font_color = Color( 1, 0.996078, 0.592157, 1 )
+theme_override_colors/font_color = Color(1, 0.996078, 0.592157, 1)
+theme_override_fonts/font = ExtResource("5")
 text = "Press UP"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Label"]
-playback_speed = 0.3
-anims/Flash = SubResource( 5 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Label" unique_id=686415225]
+libraries/ = SubResource("AnimationLibrary_l1dl0")

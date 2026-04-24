@@ -5,5 +5,5 @@ extends Sprite2D
 func _ready():
   EventBus.beat.connect(_on_beat)
 
-func _on_beat(data:Dictionary):
+func _on_beat(_data:Dictionary):
   animation.play("pulse")

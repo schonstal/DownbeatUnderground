@@ -16,7 +16,7 @@ func _ready():
   EventBus.beat.connect(_on_beat)
   EventBus.emit_signal("track_selected", { "bpm": 80, "stream": stream })
 
-func _on_beat(data:Dictionary):
+func _on_beat(_data:Dictionary):
   spawn_beat()
 
 func spawn_beat():

@@ -11,7 +11,7 @@ func _on_game_over(_data:Dictionary):
   $HUD/Label/AnimationPlayer.play("Flash")
   can_restart = true
   
-func _process(delta):
+func _process(_delta):
   if can_restart && Input.is_action_just_pressed("ui_up"):
     can_restart = false
     restart()

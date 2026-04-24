@@ -52,10 +52,10 @@ func transition_out():
 	start_sound.play()
 
 	var position_tween = create_tween()
-	position_tween.tween_property(left, "position", Vector2(vp_width / 2 - width, 0), tween_in_duration) \
+	position_tween.tween_property(left, "position", Vector2(vp_width / 2.0 - width, 0), tween_in_duration) \
 		.set_trans(Tween.TransitionType.TRANS_QUART) \
 		.set_ease(Tween.EaseType.EASE_IN)
-	position_tween.tween_property(right, "position", Vector2(vp_width / 2, 0), tween_in_duration) \
+	position_tween.tween_property(right, "position", Vector2(vp_width / 2.0, 0), tween_in_duration) \
 		.set_trans(Tween.TransitionType.TRANS_QUART) \
 		.set_ease(Tween.EaseType.EASE_IN)
 	await position_tween.finished

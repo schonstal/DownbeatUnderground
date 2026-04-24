@@ -31,7 +31,7 @@ func _ready():
   position.x = 0
   visible = false
 
-func _process(delta):
+func _process(_delta):
   move()
   if icon_left.position.x > target_position:
     visible = false
@@ -75,10 +75,6 @@ func hit(delta, keycode):
   Conductor.presses += 1
   Conductor.error_total += delta
   Conductor.average_error = Conductor.error_total / Conductor.presses
-
-  var timing = "early"
-  if delta > 0:
-    timing = "late"
 
   var judgement = 0
   if abs(delta) < Conductor.TIME_FANTASTIC:

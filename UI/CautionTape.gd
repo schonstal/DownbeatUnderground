@@ -21,7 +21,6 @@ func _ready():
   caution_animation.play("Appear")
 
 func play(sequence):
-  var index = 0
   titles.frame = 8
   #caution_animation.play("Appear")
   for frame in sequences[sequence]:
