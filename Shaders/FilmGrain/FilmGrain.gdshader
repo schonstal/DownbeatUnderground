@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 /*
-Film Grain post-process shader v1.1	
+Film Grain post-process shader v1.1
 Martins Upitis (martinsh) devlog-martinsh.blogspot.com
 2013
 
@@ -20,6 +20,7 @@ Perlin noise shader by toneburst:
 http://machinesdontcare.wordpress.com/2009/06/25/3d-perlin-noise-sphere-vertex-shader-sourcecode/
 */
 
+uniform sampler2D screen_texture: hint_screen_texture;
 uniform vec2 screen_size;
 uniform bool enabled = false;
 
@@ -110,17 +111,17 @@ vec2 coordRot(vec2 tc, float angle) {
 
 void fragment() {
   vec3 rotOffset = vec3(1.425,3.892,5.835); //rotation offset values	
-  vec2 rotCoordsR = coordRot(SCREEN_UV, time + rotOffset.x);
+  vec2 rotCoordsR = coordRot(UV, time + rotOffset.x);
   vec3 noise = vec3(pnoise3D(vec3(rotCoordsR*vec2(screen_size.x/grain_size,screen_size.y/grain_size),0.0)));
   
   if (colored) {
-    vec2 rotCoordsG = coordRot(SCREEN_UV, time + rotOffset.y);
-    vec2 rotCoordsB = coordRot(SCREEN_UV, time + rotOffset.z);
+    vec2 rotCoordsG = coordRot(UV, time + rotOffset.y);
+    vec2 rotCoordsB = coordRot(UV, time + rotOffset.z);
     noise.g = mix(noise.r,pnoise3D(vec3(rotCoordsG*vec2(screen_size.x/grain_size,screen_size.y/grain_size),1.0)),color_amount);
     noise.b = mix(noise.r,pnoise3D(vec3(rotCoordsB*vec2(screen_size.x/grain_size,screen_size.y/grain_size),2.0)),color_amount);
   }
 
-  vec3 col = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
+  vec3 col = textureLod(screen_texture, UV, 0.0).rgb;
   vec3 lumcoeff = vec3(0.299,0.587,0.114);
   float luminance = mix(0.0,dot(col, lumcoeff),lum_amount);
   float lum = smoothstep(0.2,0.0,luminance);
