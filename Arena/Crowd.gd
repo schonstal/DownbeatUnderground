@@ -6,7 +6,7 @@ func _ready():
   EventBus.beat.connect(_on_beat)
 
 func _on_beat(_data:Dictionary):
-  animation.stop()
+  animation.stop(true)
   animation.play("Beat")
 
 

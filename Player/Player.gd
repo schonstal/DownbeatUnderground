@@ -42,7 +42,7 @@ func attack():
     sprite.scale.x = -1
   else:
     sprite.scale.x = 1
-  animation.stop()
+  animation.stop(true)
   animation.play("Attack")
 
   change_state(STATE_ATTACK)
@@ -59,7 +59,7 @@ func block():
   else:
     sprite.scale.x = 1
 
-  animation.stop()
+  animation.stop(true)
   animation.play("Block")
 
   change_state(STATE_BLOCK)
@@ -70,9 +70,9 @@ func block():
 
 func dodge_left():
   lane = Game.LANE_LEFT
-  animation.stop()
+  animation.stop(true)
   animation.play("Dodge Left")
-  dash_animation.stop()
+  dash_animation.stop(true)
   dash_animation.play("Dash")
 
   change_state(STATE_DODGE_LEFT)
@@ -83,9 +83,9 @@ func dodge_left():
 
 func dodge_right():
   lane = Game.LANE_RIGHT
-  animation.stop()
+  animation.stop(true)
   animation.play("Dodge Right")
-  dash_animation.stop()
+  dash_animation.stop(true)
   dash_animation.play("Dash")
 
   change_state(STATE_DODGE_RIGHT)

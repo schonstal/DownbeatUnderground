@@ -129,13 +129,13 @@ func hide_body():
 func _block():
 	hide_body()
 	block.visible = true
-	animation.stop()
+	animation.stop(true)
 	animation.play("Block")
 
 func action_idle():
 	hide_body()
 	idle.visible = true
-	animation.stop()
+	animation.stop(true)
 	animation.play("Idle")
 	EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
 
@@ -143,7 +143,7 @@ func action_big_tell():
 	hide_body()
 	EventBus.emit_signal("play_sound", { "node_name": "ParadiddleRoar" })
 	big_tell.visible = true
-	animation.stop()
+	animation.stop(true)
 	animation.play("BigTell")
 	show_big_tell_arm("horizontal")
 	EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
@@ -165,7 +165,7 @@ func action_tell():
 		show_tell_arm("lowered")
 
 	tell.visible = true
-	animation.stop()
+	animation.stop(true)
 	animation.play("Tell")
 	EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_NONE })
 
@@ -187,7 +187,7 @@ func action_left():
 		show_tell_arm("lowered")
 		eye.position = Vector2(-1, -82)
 
-	animation.stop()
+	animation.stop(true)
 	animation.play("Left")
 	EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_LEFT, "damage": 10 })
 
@@ -209,7 +209,7 @@ func action_right():
 		show_tell_arm("lowered")
 		eye.position = Vector2(-1, -82)
 
-	animation.stop()
+	animation.stop(true)
 	animation.play("Right")
 	EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_RIGHT, "damage": 10 })
 

@@ -25,12 +25,12 @@ func play(sequence):
   #caution_animation.play("Appear")
   for frame in sequences[sequence]:
     if frame != titles.frame:
-      title_animation.stop()
+      title_animation.stop(true)
       title_animation.play("Appear")
     titles.frame = frame
     await EventBus.beat
   titles.frame = 8
-  caution_animation.stop()
+  caution_animation.stop(true)
   caution_animation.play_backwards("Appear")
 
 func _on_beat(data:Dictionary):
@@ -51,7 +51,7 @@ func _on_game_over(data:Dictionary):
     titles.frame = 5
     tko_sound.play()
 
-  title_animation.stop()
+  title_animation.stop(true)
   title_animation.play("Appear")
 
   await get_tree().create_timer(1.5).timeout
@@ -63,12 +63,12 @@ func _on_game_over(data:Dictionary):
     titles.frame = 6
     you_lose_sound.play()
 
-  title_animation.stop()
+  title_animation.stop(true)
   title_animation.play("Appear")
 
   await get_tree().create_timer(1.5).timeout
 
   titles.frame = 8
 
-  caution_animation.stop()
+  caution_animation.stop(true)
   caution_animation.play_backwards("Appear")

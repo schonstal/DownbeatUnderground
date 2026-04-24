@@ -24,7 +24,7 @@ func start_game():
 	$StartSound.play()
 	$CanvasLayer/Title/AnimationPlayer.play_backwards("Fade")
 	$Music/AnimationPlayer.play("Fade")
-	$CanvasLayer/Label/AnimationPlayer.stop()
+	$CanvasLayer/Label/AnimationPlayer.stop(true)
 	$CanvasLayer/Label.visible = false
 	await $CanvasLayer/Title/AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/Gameplay.tscn")
