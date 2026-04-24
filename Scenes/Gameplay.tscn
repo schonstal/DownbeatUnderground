@@ -392,6 +392,7 @@ script = ExtResource("9")
 modulate = Color(1, 1, 1, 0)
 
 [node name="CautionTop" type="Sprite2D" parent="HUD/CautionTape/Tape" unique_id=1425734402]
+texture_repeat = 2
 position = Vector2(640, 385.473)
 texture = ExtResource("13")
 region_enabled = true
@@ -400,6 +401,7 @@ script = ExtResource("3")
 scroll_rate = 100
 
 [node name="CautionBottom" type="Sprite2D" parent="HUD/CautionTape/Tape" unique_id=1039253594]
+texture_repeat = 2
 position = Vector2(640, 411.064)
 texture = ExtResource("13")
 region_enabled = true
@@ -408,6 +410,7 @@ script = ExtResource("3")
 scroll_rate = -100
 
 [node name="Z" type="Sprite2D" parent="HUD/CautionTape/Tape" unique_id=569707625]
+texture_repeat = 2
 position = Vector2(640, 397.321)
 scale = Vector2(1, 1e-05)
 texture = ExtResource("34")
