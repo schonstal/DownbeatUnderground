@@ -5,5 +5,5 @@ func _init():
 	super(["big_tell", "tell", "left", "right", "right", "left", "right", "left", "left", "right"])
 
 func get_next_sequence():
-	var next = [IdleSequence, LeftSequence, ParadiddleSequence]
+	var next = [IdleSequence, LeftSequence, LeftSequence, ParadiddleSequence]
 	return next[randi() % next.size()]
