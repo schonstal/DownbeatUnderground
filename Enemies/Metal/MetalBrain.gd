@@ -34,8 +34,8 @@ signal tick
 
 @onready var animation = $AnimationPlayer
 
-var max_health = 700.0
-var health = 700.0
+var max_health = 500.0
+var health = 500.0
 
 func _ready():
 	EventBus.beat_hit.connect(_on_beat_hit)
@@ -217,4 +217,4 @@ func action_sweep():
 	hide_body()
 	animation.play("Sweep")
 	sweep.visible = true
-	EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_BOTH, "damage": 10 })
+	EventBus.emit_signal("enemy_attack", { "lane": Game.LANE_BOTH, "damage": 8 })

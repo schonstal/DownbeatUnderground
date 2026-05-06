@@ -7,7 +7,10 @@ var sequences = {
 @onready var titles = $Titles
 @onready var caution_animation = $CautionAnimation
 @onready var title_animation = $TitleAnimation
-@onready var countdown_sound = $CountdownSound
+@onready var countdown_1 = $Countdown1
+@onready var countdown_2 = $Countdown2
+@onready var countdown_3 = $Countdown3
+@onready var countdown_4 = $Countdown4
 
 @onready var game_over_sound = $GameOver
 @onready var ko_sound = $KO
@@ -22,7 +25,6 @@ func _ready():
 
 func play(sequence):
   titles.frame = 8
-  #caution_animation.play("Appear")
   for frame in sequences[sequence]:
     if frame != titles.frame:
       title_animation.stop(true)
@@ -36,7 +38,13 @@ func play(sequence):
 func _on_beat(data:Dictionary):
   if data.beat == 8:
     play("countdown")
-    countdown_sound.play()
+    countdown_1.play()
+  if data.beat == 10:
+    countdown_2.play()
+  if data.beat == 12:
+    countdown_3.play()
+  if data.beat == 14:
+    countdown_4.play()
 
 func _on_game_over(data:Dictionary):
   game_over_sound.play()
