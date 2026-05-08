@@ -30,7 +30,7 @@ func play_track():
   if audio_stream_player != null:
     audio_stream_player.queue_free()
   audio_stream_player = AudioStreamPlayer.new()
-  call_deferred("add_child", audio_stream_player)
+  add_child(audio_stream_player)
   audio_stream_player.stream = stream
 
   var time_delay = AudioServer.get_time_to_next_mix() +\
