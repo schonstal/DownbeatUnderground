@@ -22,4 +22,8 @@ signal game_over(data)
 # Shaders
 signal blur_chromatic(data)
 signal victory(data)
+
+# Sync
+signal calibration_started
+signal calibration_stopped
 @warning_ignore_restore("unused_signal")

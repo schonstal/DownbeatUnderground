@@ -22,6 +22,7 @@ Conductor="*res://Autoload/Conductor.tscn"
 Game="*res://Autoload/Game.gd"
 CombatResolver="*res://Autoload/CombatResolver.gd"
 Transition="*res://UI/Transition/Transition.tscn"
+Calibrator="*uid://cj74s2w0lplh1"
 
 [display]
 
