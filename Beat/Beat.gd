@@ -31,7 +31,7 @@ func _ready():
   position.x = 0
   visible = false
 
-func _process(_delta):
+func _physics_process(_delta):
   move()
   if icon_left.position.x > target_position:
     visible = false

@@ -13,42 +13,46 @@ var song_start_time = 0.0
 var time_elapsed : get = get_time_elapsed
 var song_length : get = get_length
 
-var TIME_GREAT = 102000
+var TIME_GREAT = 120000
 var TIME_EXCELLENT = 43000
 var TIME_FANTASTIC = 21500
 
 @export var stream: Resource = preload("res://Music/metalstep140.ogg")
 
 var audio_stream_player
+var time_delay := 0.0
+var offset_usec := 35008
 
 func _ready():
   EventBus.track_selected.connect(_on_track_selected)
   EventBus.game_over.connect(_on_game_over)
-  audio_stream_player = AudioStreamPlayer.new()
+  _prewarm_audio_context()
 
-func play_track():
-  if audio_stream_player != null:
-    audio_stream_player.queue_free()
+func _prewarm_audio_context() -> void:
   audio_stream_player = AudioStreamPlayer.new()
   add_child(audio_stream_player)
-  audio_stream_player.stream = stream
 
-  var time_delay = AudioServer.get_time_to_next_mix() +\
-                   AudioServer.get_output_latency()
+
+func play_track():
+  audio_stream_player.stream = stream
+  audio_stream_player.seek(0.0)
+  AudioServer.set_bus_volume_db(0, 0.0)
+
   beat = 0
 
-  await get_tree().create_timer(time_delay).timeout
-  print(time_delay)
+  var retries := 0
+  while AudioServer.get_output_latency() == 0.0 && retries < 300:
+    await get_tree().physics_frame
+    retries += 1
+
+  time_delay = AudioServer.get_time_to_next_mix() +\
+               AudioServer.get_output_latency()
 
   song_start_time = Time.get_ticks_usec()
   audio_stream_player.play()
 
-func _process(_delta: float):
-  time = (
-    audio_stream_player.get_playback_position() +
-    AudioServer.get_time_since_last_mix() -
-    AudioServer.get_output_latency()
-  )
+func _physics_process(_delta: float):
+  time = get_time_elapsed() - time_delay
 
   var next_beat = int(time * bps)
 
@@ -70,7 +74,7 @@ func _on_game_over(_data:Dictionary):
 
 func get_time_elapsed():
   if audio_stream_player.playing:
-    return Time.get_ticks_usec() - song_start_time - 35008
+    return Time.get_ticks_usec() - song_start_time - offset_usec
   else:
     return 0
 
