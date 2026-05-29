@@ -2,32 +2,34 @@ extends Node
 
 const CONFIG_PATH := "user://downbeat_underground.cfg"
 
-var max_samples := 30
+signal started
+signal stopped
+signal changed
+
+var max_samples := 20
 var offset_usec := 35000
 
 var _previous_beat := -1
-var calibrating := false
+var _calibrating := false
 var _buffer : Array[float] = []
 
 func start() -> void:
-	if calibrating:
+	if _calibrating:
 		return
 
-	calibrating = true
-	print("calibration started")
+	_calibrating = true
 
-	EventBus.calibration_started.emit()
+	started.emit()
 
 
 func stop() -> void:
-	if !calibrating:
+	if !_calibrating:
 		return
 
-	calibrating = false
-	print("calibration complete")
+	_calibrating = false
 
 	_save_offset()
-	EventBus.calibration_stopped.emit()
+	stopped.emit()
 
 
 func reset() -> void:
@@ -44,14 +46,13 @@ func _unhandled_input(e: InputEvent) -> void:
 		return
 
 	var event : InputEventKey = e as InputEventKey
-	if !event.pressed:
-		return
-	
-	if event.keycode == KEY_C:
-		if calibrating:
-			stop()
-		else:
+
+	if event.keycode == KEY_SHIFT:
+		if event.pressed:
 			start()
+		else:
+			stop()
+	
 
 	if event.keycode in [KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT]:
 		_record_sample()
@@ -72,21 +73,18 @@ func _record_sample() -> void:
 
 	_previous_beat = Conductor.beat
 
-	if calibrating:
+	if _calibrating:
 		_calibrate()
 
 
 func _calibrate() -> void:
 	var samples := _filter_outliers()
-	print(_buffer)
-	print(samples)
-	print("====")
 	if samples.size() < 5:
 		return
 
 	var mean : float = samples.reduce(_sum, 0) / samples.size()
 	offset_usec = int(mean)
-	print("new offset: ", offset_usec)
+	changed.emit()
 
 
 func _filter_outliers() -> Array[float]:
